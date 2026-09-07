@@ -81,11 +81,11 @@ a:focus-visible{outline:2px solid var(--green-2); outline-offset:3px; border-rad
 }
 .hero::before{
   content:""; position:absolute; inset:0; pointer-events:none; z-index:1;
-  background-image:radial-gradient(rgba(120,210,230,.34) 1.1px, transparent 1.1px);
-  background-size:23px 23px;
-  -webkit-mask-image:radial-gradient(1200px 760px at 62% 34%, #000 0%, transparent 78%);
-  mask-image:radial-gradient(1200px 760px at 62% 34%, #000 0%, transparent 78%);
-  opacity:.9;
+  background-image:radial-gradient(rgba(126,240,255,.20) 1.1px, transparent 1.1px);
+  background-size:24px 24px;
+  -webkit-mask-image:radial-gradient(1150px 720px at 62% 32%, #000 0%, transparent 76%);
+  mask-image:radial-gradient(1150px 720px at 62% 32%, #000 0%, transparent 76%);
+  opacity:1;
 }
 .hero::after{
   content:""; position:absolute; inset:auto 0 -1px 0; height:120px; pointer-events:none; z-index:1;
@@ -109,7 +109,7 @@ h1 em{
   -webkit-text-fill-color:transparent;
 }
 .role{
-  font-size:clamp(1.2rem,2.8vw,1.6rem); font-weight:600; color:#fff;
+  font-size:clamp(1.2rem,2.8vw,1.6rem); font-weight:600; color:var(--lime);
   margin:0 0 18px; min-height:1.5em;
 }
 .role .cursor{
@@ -294,15 +294,15 @@ main{padding-bottom:40px}
 <section class="sec" id="about">
   <div class="sechead">
     <h2>About <em>Me</em></h2>
-    <p>Ten years in industry, six of them in machine learning.</p>
+    <p>Turning models into systems people can actually rely on.</p>
   </div>
 
   <div class="aboutgrid">
     <div class="bgcard">
       <h3>Background</h3>
-      <p>I started as a <b>software engineer</b>, working onsite for Nissan in <b>Amsterdam</b> and then <b>Paris</b> on finance, logistics and vehicle registration systems. The turn toward machine learning happened there. A lot of that work was manual calculation and hand-maintained rules, and I replaced part of it with regression models that did the job faster and more consistently. The modelling turned out to be more interesting than the plumbing.</p>
-      <p><b>Six of my ten years have been in machine learning.</b> Credit risk scoring and transaction monitoring for financial crime at <b>KBC Bank</b>, then leading demand forecasting for <b>Nissan</b>, where model output had to feed systems that could not be taken offline.</p>
-      <p>I did an <b>MSc in Computer Science at Leiden University</b> to deepen the theory behind work I had been doing in practice, and to keep pace with a field that moves quickly.</p>
+      <p>Ten years in industry, <b>six of them in machine learning</b>. I started as a software engineer working onsite for Nissan in Amsterdam and then Paris, where much of the work was manual calculation and hand-maintained rules. I replaced part of it with regression models that did the job faster and more consistently, and the modelling turned out to be more interesting than the plumbing.</p>
+      <p>Since then I have worked across the full lifecycle — messy data, feature engineering, models, deployment and the dashboards people actually look at. <b>Credit risk scoring and financial crime monitoring at KBC Bank</b>, then <b>leading demand forecasting for Nissan</b>, where model output fed systems that could not be taken offline. I did an <b>MSc in Computer Science at Leiden University</b> to deepen the theory behind work I had been doing in practice.</p>
+      <p>What interests me is the part where good engineering matters as much as a good model. A model that scores well but cannot be explained to an auditor is not finished, and neither is one that works in a notebook and falls over on live data. The projects I have enjoyed most are the ones where someone's work got measurably easier because the system was built properly, not just accurately.</p>
       <p>Outside work I read papers, play sport, and keep a few side projects running. I learn best by building things rather than reading about them.</p>
     </div>
 
