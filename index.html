@@ -176,6 +176,57 @@ h1 em{
 .scrollcue:hover{background:rgba(255,255,255,.1); color:#fff}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
 
+
+/* ---------------- sections ---------------- */
+main{padding-bottom:40px}
+.sec{padding:104px 0 0}
+.sechead{text-align:center; margin:0 0 56px}
+.sechead h2{
+  font-weight:700; font-size:clamp(1.9rem,4vw,2.6rem); letter-spacing:-.025em; margin:0 0 10px;
+}
+.sechead h2 em{
+  font-style:normal;
+  background:linear-gradient(100deg,#137a63 0%,#3f8f5a 48%,#b08d1e 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.sechead p{color:var(--muted); margin:0; font-size:1.02rem}
+
+/* ---------------- about ---------------- */
+.aboutgrid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.06fr); gap:26px; align-items:start}
+.bgcard{
+  background:var(--card); border:1px solid var(--rule); border-radius:14px;
+  padding:30px 32px; position:sticky; top:92px;
+}
+.bgcard h3{
+  color:var(--green-2); font-size:1.22rem; margin:0 0 16px; font-weight:600;
+}
+.bgcard p{margin:0 0 16px; color:#33403d}
+.bgcard p:last-child{margin-bottom:0}
+.bgcard b{color:var(--ink); font-weight:600}
+
+.tiles{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px}
+.tile{
+  background:var(--card); border:1px solid var(--rule); border-radius:14px;
+  padding:24px 22px; transition:transform .2s, box-shadow .2s, border-color .2s;
+}
+.tile:hover{transform:translateY(-4px); border-color:#bcd6cc; box-shadow:0 16px 34px -22px rgba(20,33,31,.5)}
+.ticon{
+  width:46px; height:46px; border-radius:12px; display:grid; place-items:center;
+  background:#e7f2ee; margin-bottom:15px;
+}
+.ticon svg{width:22px; height:22px; stroke:var(--green-2); fill:none; stroke-width:1.9;
+  stroke-linecap:round; stroke-linejoin:round}
+.tile h4{font-size:1.02rem; margin:0 0 7px; font-weight:600}
+.tile p{margin:0; font-size:.93rem; color:var(--muted); line-height:1.55}
+
+@media (max-width:900px){
+  .aboutgrid{grid-template-columns:1fr; gap:20px}
+  .bgcard{position:static}
+  .sec{padding:70px 0 0}
+  .sechead{margin-bottom:38px}
+}
+@media (max-width:520px){ .tiles{grid-template-columns:1fr} }
+
 @media (max-width:880px){
   .hero .wrap{grid-template-columns:1fr; gap:40px; padding:118px 26px 68px; text-align:left}
   .shot{justify-self:start; margin-top:0}
@@ -197,7 +248,7 @@ h1 em{
   <div class="wrap">
     <a class="brand" href="#top"><span class="br l">{</span><span class="mono">NV</span><span class="br r">}</span></a>
     <div class="navlinks">
-      <a href="#about" class="on">About</a>
+      <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
@@ -214,7 +265,7 @@ h1 em{
       <h1>Nallathambi <em>Vethiappan</em></h1>
       <p class="role"><span id="typed"></span><span class="cursor"></span></p>
       <p class="based">Based in Amsterdam, Netherlands</p>
-      <p class="bio">I build machine learning systems that run in production — fraud and transaction monitoring on live banking data, demand forecasting wired into legacy mainframes, and vision-language models that can explain their own reasoning. Ten years of software engineering came before the models, and it shows in how I test them.</p>
+      <p class="bio">I build machine learning systems that run in production — credit risk scoring, credit card and transaction monitoring for financial crime, demand forecasting for automotive supply chains, and vision-language models that can explain their own reasoning. Ten years in industry, six of them building and deploying machine learning at senior and lead level — which is why I care as much about whether a system holds up in production as about how it scores on a test set.</p>
       <div class="social">
         <a href="https://github.com/Nalla-V" aria-label="GitHub">
           <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
@@ -242,7 +293,58 @@ h1 em{
   <a class="scrollcue" href="#about" aria-label="Scroll to next section">↓</a>
 </header>
 
+<main class="wrap">
 
+<section class="sec" id="about">
+  <div class="sechead">
+    <h2>About <em>Me</em></h2>
+    <p>Ten years in industry, six of them in machine learning.</p>
+  </div>
+
+  <div class="aboutgrid">
+    <div class="bgcard">
+      <h3>Background</h3>
+      <p>Ten years in industry, the last six of them in machine learning. I started in systems integration and data engineering at Nissan, then moved into modelling: <b>credit risk scoring and transaction monitoring at KBC Bank</b>, and later <b>demand forecasting at Nissan as a tech lead</b>. Much of it was delivered onsite with European clients in <b>Amsterdam and Paris</b>.</p>
+      <p>After six years of applied ML I went back to full-time study to go deeper on the theory, and completed an <b>MSc in Computer Science at Leiden University</b>. My thesis breaks a claim about an image into atomic facts, so a frozen vision-language model can be checked one fact at a time rather than trusted for a single verdict.</p>
+      <p>What carries across from the first decade is the habit of reporting what actually happened. Every repository I publish <b>leads with the result</b> — including the experiments that contradicted the method — and ships the full report with the code.</p>
+    </div>
+
+    <div class="tiles">
+      <div class="tile">
+        <div class="ticon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+        <h4>ML in Production</h4>
+        <p>Fraud detection, transaction monitoring and demand forecasting on live data — not notebooks.</p>
+      </div>
+      <div class="tile">
+        <div class="ticon"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></div>
+        <h4>Language &amp; Vision</h4>
+        <p>BERT, RobBERT and frozen vision-language models for entailment, retrieval and inspectable reasoning.</p>
+      </div>
+      <div class="tile">
+        <div class="ticon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/><path d="M4 11.5v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/></svg></div>
+        <h4>Data Engineering</h4>
+        <p>PySpark, Kafka and SQL pipelines feeding models data they can actually be trusted on.</p>
+      </div>
+      <div class="tile">
+        <div class="ticon"><svg viewBox="0 0 24 24"><path d="M6.5 18.5a4.5 4.5 0 0 1-.4-9A6 6 0 0 1 18 9.6a3.9 3.9 0 0 1-.6 8.9z"/></svg></div>
+        <h4>Cloud &amp; Deployment</h4>
+        <p>Azure and AWS, containerised services, queue-coordinated pipelines — models that ship.</p>
+      </div>
+      <div class="tile">
+        <div class="ticon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="1.6"/><rect x="3" y="13" width="18" height="7" rx="1.6"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></div>
+        <h4>Legacy Integration</h4>
+        <p>Wiring modern models into mainframe systems that cannot be switched off or rewritten.</p>
+      </div>
+      <div class="tile">
+        <div class="ticon"><svg viewBox="0 0 24 24"><path d="M12 2.8l7.5 3v6c0 4.6-3.2 8.4-7.5 9.4-4.3-1-7.5-4.8-7.5-9.4v-6z"/><path d="M9.2 12.2l2 2 3.6-3.9"/></svg></div>
+        <h4>Explainable &amp; Auditable</h4>
+        <p>SHAP and decomposed reasoning, so compliance and audit teams can interrogate a decision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
 
 <script>
 (function(){
