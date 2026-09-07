@@ -93,8 +93,7 @@
     Training runs in this page. Nothing is loaded from a checkpoint and no request leaves the browser.
     The scheduler advances whichever agent has taken the fewest steps, so the horizontal axis below
     is experience, not compute time. Each cart is driven by its own policy at its current parameters.
-    The algorithms are the ones from <a href="https://github.com/Nalla-V/ppo-cartpole">the repository</a>,
-    reimplemented in JavaScript with hand-written gradients.
+    The algorithms are reimplemented in JavaScript with hand-written gradients.
   </p>
 
   <div class="lanes" id="lanes"></div>
@@ -116,9 +115,7 @@
   <div class="settings" id="result"></div>
 
   <footer>CartPole-v1, episodes capped at 500 steps. Solved is a mean return of 475 or better.
-    64-unit networks, 250,000 steps, one seed each; PPO lr 1e-3, A2C 7e-4, DQN 3e-4. Smaller and
-    shorter than the study, whose five-seed results are in the
-    <a href="https://github.com/Nalla-V/ppo-cartpole">repository</a>.</footer>
+    64-unit networks, 250,000 steps, one seed each; PPO lr 1e-3, A2C 7e-4, DQN 3e-4.</footer>
 </div>
 
 <script>
