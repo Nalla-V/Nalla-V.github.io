@@ -283,6 +283,64 @@ details.more[open] summary::after{transform:rotate(180deg)}
   .badge-org{width:96px; height:44px}
 }
 
+/* ---------------- projects carousel ---------------- */
+.carousel{position:relative}
+.track{
+  display:flex; gap:22px; overflow-x:auto; scroll-snap-type:x mandatory;
+  scrollbar-width:none; -ms-overflow-style:none; padding:4px 0 6px;
+}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%; scroll-snap-align:center; min-width:0}
+.pcard{
+  background:var(--card); border:1px solid var(--rule); border-radius:16px; overflow:hidden;
+  display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); min-height:340px;
+}
+.pshot{background:#fff; display:grid; place-items:center; padding:22px; border-right:1px solid var(--rule)}
+.pshot img{width:100%; height:auto; max-height:300px; object-fit:contain; display:block}
+.pbody{padding:30px 32px; display:flex; flex-direction:column}
+.pkicker{font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 10px}
+.pbody h3{font-size:1.32rem; font-weight:600; margin:0 0 12px; line-height:1.25}
+.pbody p{margin:0 0 14px; color:#c2cedb; font-size:.97rem}
+.presult{color:var(--ink); font-size:.97rem; margin:0 0 18px}
+.presult b{color:var(--lime); font-weight:600}
+.pstack{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px; padding:0; list-style:none}
+.pstack li{
+  font-size:.8rem; color:var(--muted); background:rgba(255,255,255,.04);
+  border:1px solid var(--rule); border-radius:100px; padding:4px 12px;
+}
+.pbtn{
+  margin-top:auto; align-self:flex-start; text-decoration:none; font-size:.93rem; font-weight:600;
+  background:var(--lime); color:#052229; padding:11px 22px; border-radius:9px;
+  transition:transform .15s, box-shadow .15s;
+}
+.pbtn:hover{transform:translateY(-2px); box-shadow:0 10px 24px -12px rgba(34,211,238,.7)}
+
+.arrow{
+  position:absolute; top:50%; transform:translateY(-50%); z-index:5;
+  width:46px; height:46px; border-radius:50%; cursor:pointer;
+  background:rgba(13,21,29,.9); border:1px solid var(--rule); color:var(--lime);
+  font-size:1.3rem; line-height:1; display:grid; place-items:center;
+  transition:background .18s, border-color .18s, transform .18s;
+}
+.arrow:hover{background:var(--lime); color:#052229; border-color:var(--lime)}
+.arrow.prev{left:-22px} .arrow.next{right:-22px}
+.arrow[disabled]{opacity:.3; cursor:default}
+.arrow[disabled]:hover{background:rgba(13,21,29,.9); color:var(--lime); border-color:var(--rule)}
+
+.dots{display:flex; justify-content:center; gap:10px; margin-top:26px}
+.dots button{
+  width:10px; height:10px; border-radius:50%; padding:0; cursor:pointer;
+  background:rgba(255,255,255,.18); border:none; transition:background .2s, width .2s;
+}
+.dots button.on{background:var(--lime); width:26px; border-radius:100px}
+
+@media (max-width:860px){
+  .pcard{grid-template-columns:1fr}
+  .pshot{border-right:none; border-bottom:1px solid var(--rule); padding:16px}
+  .pbody{padding:24px 22px}
+  .arrow.prev{left:2px} .arrow.next{right:2px}
+}
+
 @media (max-width:900px){
   .aboutgrid{grid-template-columns:1fr; gap:20px}
   .bgcard{position:static}
@@ -577,6 +635,100 @@ details.more[open] summary::after{transform:rotate(180deg)}
   </div>
 </section>
 
+<section class="sec" id="projects">
+  <div class="sechead">
+    <h2>Featured <em>Projects</em></h2>
+    <p>Each repository leads with the result — including the experiments that went against the method — and ships the full report with the code.</p>
+  </div>
+
+  <div class="carousel">
+    <button class="arrow prev" id="pPrev" aria-label="Previous project">&#8249;</button>
+    <div class="track" id="pTrack">
+      <div class="slide">
+        <article class="pcard">
+          <div class="pshot"><img src="img/ave.jpg" alt="Zero-shot accuracy across seven vision-language models" loading="lazy"></div>
+          <div class="pbody">
+            <p class="pkicker">Research · Master’s thesis</p>
+            <h3>Atomic Visual Entailment</h3>
+            <p>Decomposing a claim about an image into atomic facts so a frozen vision-language model can be checked one fact at a time, instead of trusted for a single verdict. No fine-tuning, no API cost.</p>
+            <p class="presult">Improved zero-shot accuracy on SNLI-VE by <b>12–25 percentage points</b> over prior zero-shot and hybrid methods.</p>
+            <ul class="pstack"><li>PyTorch</li><li>Qwen</li><li>InternVL</li><li>LLaVA</li><li>XGBoost</li><li>Grounding DINO</li></ul>
+            <a class="pbtn" href="https://github.com/Nalla-V/atomic-visual-entailment">View project</a>
+          </div>
+        </article>
+      </div>
+      <div class="slide">
+        <article class="pcard">
+          <div class="pshot"><img src="img/clock.jpg" alt="Training and validation curves for the sin/cos model" loading="lazy"></div>
+          <div class="pbody">
+            <p class="pkicker">Deep learning</p>
+            <h3>Reading Analog Clocks with CNNs</h3>
+            <p>Five ways of representing clock time for the same convolutional network, on the same 18,000 images. Only the output representation changed.</p>
+            <p class="presult">Error moved from <b>182.93 minutes — chance — to 8.52</b>. The most precise-looking formulation was the worst.</p>
+            <ul class="pstack"><li>TensorFlow</li><li>Keras</li><li>CNN</li><li>Cyclical encoding</li></ul>
+            <a class="pbtn" href="https://github.com/Nalla-V/tell-the-time-cnn">View project</a>
+          </div>
+        </article>
+      </div>
+      <div class="slide">
+        <article class="pcard">
+          <div class="pshot"><img src="img/rl.jpg" alt="PPO, A2C and DQN mean reward over one million steps" loading="lazy"></div>
+          <div class="pbody">
+            <p class="pkicker">Reinforcement learning</p>
+            <h3>Policy Gradients and PPO on CartPole</h3>
+            <p>Three studies covering DQN variants, policy gradient methods and PPO with GAE, all implemented from scratch and run for a million steps across five seeds.</p>
+            <p class="presult">PPO’s advantage turned out to be <b>variance rather than ceiling</b> — A2C reaches the same peak and cannot hold it.</p>
+            <ul class="pstack"><li>PyTorch</li><li>Gymnasium</li><li>PPO</li><li>A2C</li><li>DQN</li></ul>
+            <a class="pbtn" href="https://github.com/Nalla-V/ppo-cartpole">View project</a>
+          </div>
+        </article>
+      </div>
+      <div class="slide">
+        <article class="pcard">
+          <div class="pshot"><img src="img/azure.jpg" alt="Latency and throughput, one container against two" loading="lazy"></div>
+          <div class="pbody">
+            <p class="pkicker">Cloud engineering</p>
+            <h3>Distributed Video Processing on Azure</h3>
+            <p>Five queue-coordinated microservices splitting, watermarking, thumbnailing and reassembling video in parallel, with a central aggregator tracking job state.</p>
+            <p class="presult">A fire-and-forget messaging pattern that <b>avoids lock contention</b> across services.</p>
+            <ul class="pstack"><li>Azure Container Apps</li><li>Service Bus</li><li>Cosmos DB</li><li>Docker</li></ul>
+            <a class="pbtn" href="https://github.com/Nalla-V/azure-video-watermarking">View project</a>
+          </div>
+        </article>
+      </div>
+      <div class="slide">
+        <article class="pcard">
+          <div class="pshot"><img src="img/rec.jpg" alt="Recall@10 across blend configurations" loading="lazy"></div>
+          <div class="pbody">
+            <p class="pkicker">Recommender systems</p>
+            <h3>Hybrid Recommender Under Sparsity</h3>
+            <p>Item-kNN, sequential co-occurrence, TF-IDF and popularity blended for Amazon beauty products, tuned against a deliberately hard evaluation.</p>
+            <p class="presult">Built for a dataset where <b>93% of users have a single interaction</b>, which defeats collaborative filtering alone.</p>
+            <ul class="pstack"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>TF-IDF</li></ul>
+            <a class="pbtn" href="https://github.com/Nalla-V/amazon-product-recommender">View project</a>
+          </div>
+        </article>
+      </div>
+      <div class="slide">
+        <article class="pcard">
+          <div class="pshot"><img src="img/graph.jpg" alt="Approximation error by landmark selection strategy" loading="lazy"></div>
+          <div class="pbody">
+            <p class="pkicker">Algorithms</p>
+            <h3>Landmark Shortest-Path Estimation</h3>
+            <p>Approximate shortest-path distances in large graphs, comparing seven landmark selection strategies across real social network datasets.</p>
+            <p class="presult">Which nodes you pick as landmarks matters <b>far more than how many</b> you pick.</p>
+            <ul class="pstack"><li>Python</li><li>NetworkX</li><li>Graph algorithms</li></ul>
+            <a class="pbtn" href="https://github.com/Nalla-V/landmark-shortest-path-estimation">View project</a>
+          </div>
+        </article>
+      </div>
+    </div>
+    <button class="arrow next" id="pNext" aria-label="Next project">&#8250;</button>
+  </div>
+  <div class="dots" id="pDots"></div>
+  <p class="allrepos" style="text-align:center;margin-top:22px"><a href="https://github.com/Nalla-V" style="color:var(--lime)">All eighteen repositories on GitHub</a></p>
+</section>
+
 </main>
 
 <script>
@@ -641,6 +793,46 @@ details.more[open] summary::after{transform:rotate(180deg)}
   });
   shot.addEventListener('mouseleave', function(){ frame.style.transform = ''; });
 })();
+/* projects carousel */
+(function(){
+  var track=document.getElementById('pTrack');
+  if(!track) return;
+  var slides=[].slice.call(track.children),
+      dots=document.getElementById('pDots'),
+      prev=document.getElementById('pPrev'),
+      next=document.getElementById('pNext'), i=0;
+  slides.forEach(function(_,n){
+    var b=document.createElement('button');
+    b.setAttribute('aria-label','Go to project '+(n+1));
+    b.addEventListener('click',function(){ go(n); });
+    dots.appendChild(b);
+  });
+  function go(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    track.scrollTo({left:slides[i].offsetLeft-track.offsetLeft, behavior:'smooth'});
+    sync();
+  }
+  function sync(){
+    [].slice.call(dots.children).forEach(function(d,n){ d.classList.toggle('on', n===i); });
+    prev.disabled = i===0; next.disabled = i===slides.length-1;
+  }
+  prev.addEventListener('click',function(){ go(i-1); });
+  next.addEventListener('click',function(){ go(i+1); });
+  var t;
+  track.addEventListener('scroll',function(){
+    clearTimeout(t);
+    t=setTimeout(function(){
+      var mid=track.scrollLeft+track.clientWidth/2, best=0, bd=1e9;
+      slides.forEach(function(sl,n){
+        var c=sl.offsetLeft-track.offsetLeft+sl.clientWidth/2, d=Math.abs(c-mid);
+        if(d<bd){bd=d;best=n;}
+      });
+      i=best; sync();
+    },90);
+  },{passive:true});
+  sync();
+})();
+
 </script>
 
 </body>
