@@ -345,6 +345,28 @@ details.more[open] summary::after{transform:rotate(180deg)}
   .arrow.prev{left:2px} .arrow.next{right:2px}
 }
 
+/* ---------------- education ---------------- */
+.edugrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:22px}
+.educard{
+  background:var(--card); border:1px solid var(--rule); border-radius:16px;
+  padding:28px 28px 26px; transition:border-color .2s, transform .2s, box-shadow .2s;
+}
+.educard:hover{border-color:#2a4a5c; transform:translateY(-4px); box-shadow:0 20px 40px -26px rgba(0,0,0,.95)}
+.edutop{display:flex; gap:16px; align-items:flex-start; margin-bottom:16px}
+.edubadge{
+  flex:0 0 auto; width:56px; height:56px; border-radius:13px; display:grid; place-items:center;
+  background:rgba(34,211,238,.1); border:1px solid var(--rule);
+  color:var(--lime); font-weight:700; font-size:1.05rem; letter-spacing:.02em;
+}
+.educard h3{font-size:1.1rem; font-weight:600; margin:0 0 5px; line-height:1.3}
+.eduorg{color:var(--lime); font-weight:600; font-size:.96rem; margin:0}
+.edumeta{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 16px}
+.edumeta span{
+  font-size:.83rem; color:var(--muted); background:rgba(255,255,255,.04);
+  border:1px solid var(--rule); border-radius:7px; padding:4px 10px;
+}
+.educard p.note{margin:0; color:#c2cedb; font-size:.95rem}
+
 @media (max-width:900px){
   .aboutgrid{grid-template-columns:1fr; gap:20px}
   .bgcard{position:static}
@@ -744,6 +766,39 @@ details.more[open] summary::after{transform:rotate(180deg)}
   <div class="dots" id="pDots"></div>
 
   <p class="allrepos" style="text-align:center;margin-top:22px"><a href="https://github.com/Nalla-V" style="color:var(--lime)">All eighteen repositories on GitHub</a></p>
+</section>
+
+<section class="sec" id="education">
+  <div class="sechead">
+    <h2><em>Education</em></h2>
+    <p>Formal grounding either side of a decade of practice.</p>
+  </div>
+
+  <div class="edugrid">
+    <div class="educard">
+      <div class="edutop">
+        <div class="edubadge">LU</div>
+        <div>
+          <h3>MSc Computer Science — Data Science &amp; AI</h3>
+          <p class="eduorg">Leiden University (LIACS)</p>
+        </div>
+      </div>
+      <div class="edumeta"><span>2025 – 2026</span><span>Leiden, Netherlands</span></div>
+      <p class="note">Thesis on atomic visual entailment: decomposing a claim about an image into individual facts so a frozen vision-language model can be checked one fact at a time.</p>
+    </div>
+
+    <div class="educard">
+      <div class="edutop">
+        <div class="edubadge">AU</div>
+        <div>
+          <h3>BTech Information Technology</h3>
+          <p class="eduorg">Anna University</p>
+        </div>
+      </div>
+      <div class="edumeta"><span>2006 – 2010</span><span>Chennai, India</span></div>
+      <p class="note">Computer science and software engineering foundations — the base for a decade of production systems work that followed.</p>
+    </div>
+  </div>
 </section>
 
 </main>
