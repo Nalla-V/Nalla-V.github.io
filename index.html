@@ -215,6 +215,23 @@ main{padding-bottom:40px}
 .tile h4{font-size:1.02rem; margin:0 0 7px; font-weight:600}
 .tile p{margin:0; font-size:.93rem; color:var(--muted); line-height:1.55}
 
+/* ---------------- skills ---------------- */
+.skillgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(304px,1fr)); gap:20px}
+.skillcard{
+  background:var(--card); border:1px solid var(--rule); border-radius:14px;
+  padding:26px 24px 24px; transition:border-color .2s, transform .2s, box-shadow .2s;
+}
+.skillcard:hover{border-color:#2a4a5c; transform:translateY(-3px); box-shadow:0 18px 38px -24px rgba(0,0,0,.9)}
+.skillcard h3{color:var(--lime); font-size:1.1rem; font-weight:600; margin:0 0 16px; line-height:1.3}
+.tags{display:flex; flex-wrap:wrap; gap:9px; margin:0; padding:0; list-style:none}
+.tags li{
+  font-size:.88rem; color:#cfdae4; background:rgba(255,255,255,.04);
+  border:1px solid var(--rule); border-radius:100px; padding:6px 14px;
+  transition:border-color .18s, color .18s, background .18s;
+}
+.skillcard:hover .tags li{border-color:#26404f}
+.tags li:hover{color:#fff; border-color:var(--lime); background:rgba(34,211,238,.1)}
+
 @media (max-width:900px){
   .aboutgrid{grid-template-columns:1fr; gap:20px}
   .bgcard{position:static}
@@ -337,6 +354,66 @@ main{padding-bottom:40px}
         <h4>Explainable &amp; Auditable</h4>
         <p>SHAP and decomposed reasoning, so compliance and audit teams can interrogate a decision.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="skills">
+  <div class="sechead">
+    <h2>Skills &amp; <em>Expertise</em></h2>
+    <p>Tools I have used in production systems and in published work.</p>
+  </div>
+
+  <div class="skillgrid">
+    <div class="skillcard">
+      <h3>Programming &amp; Data</h3>
+      <ul class="tags">
+        <li>Python</li><li>SQL</li><li>PySpark</li><li>pandas</li><li>NumPy</li>
+        <li>SciPy</li><li>Jupyter</li><li>Git</li>
+      </ul>
+    </div>
+
+    <div class="skillcard">
+      <h3>Machine Learning</h3>
+      <ul class="tags">
+        <li>scikit-learn</li><li>XGBoost</li><li>Random Forest</li><li>Isolation Forest</li>
+        <li>Autoencoders</li><li>LSTM</li><li>ARIMA</li><li>Time-series forecasting</li>
+        <li>Anomaly detection</li><li>Optuna</li><li>SHAP</li>
+      </ul>
+    </div>
+
+    <div class="skillcard">
+      <h3>Deep Learning &amp; AI</h3>
+      <ul class="tags">
+        <li>PyTorch</li><li>TensorFlow</li><li>Keras</li><li>Hugging Face</li>
+        <li>BERT</li><li>RobBERT</li><li>Qwen</li><li>InternVL</li><li>LLaVA</li>
+        <li>Grounding DINO</li><li>LLM prompting &amp; evaluation</li>
+      </ul>
+    </div>
+
+    <div class="skillcard">
+      <h3>Data Engineering &amp; Cloud</h3>
+      <ul class="tags">
+        <li>Kafka</li><li>Azure Container Apps</li><li>Service Bus</li><li>Cosmos DB</li>
+        <li>AWS S3</li><li>Lambda</li><li>SageMaker</li><li>BigQuery</li>
+        <li>Docker</li><li>MLOps</li>
+      </ul>
+    </div>
+
+    <div class="skillcard">
+      <h3>Visualisation &amp; Delivery</h3>
+      <ul class="tags">
+        <li>Power BI</li><li>Matplotlib</li><li>Excel</li><li>Agile</li>
+        <li>JIRA</li><li>Confluence</li><li>ServiceNow</li><li>Stakeholder reporting</li>
+      </ul>
+    </div>
+
+    <div class="skillcard">
+      <h3>Legacy &amp; Enterprise Systems</h3>
+      <ul class="tags">
+        <li>Mainframe integration</li><li>DB2</li><li>SAP</li><li>Java APIs</li>
+        <li>Systems integration</li><li>Legacy modernisation</li>
+      </ul>
     </div>
   </div>
 </section>
