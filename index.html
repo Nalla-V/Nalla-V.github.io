@@ -412,11 +412,13 @@ details.more[open] summary::after{transform:rotate(180deg)}
 .field input::placeholder, .field textarea::placeholder{color:#63737f}
 .field input:focus, .field textarea:focus{outline:none; border-color:var(--lime); background:rgba(34,211,238,.05)}
 .sendbtn{
-  width:100%; cursor:pointer; font:inherit; font-size:.98rem; font-weight:600;
-  background:var(--lime); color:#052229; border:none; border-radius:10px; padding:14px 20px;
-  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  width:auto; min-width:min(420px,100%); margin:0 auto; cursor:pointer; font:inherit;
+  font-size:.98rem; font-weight:600;
+  background:var(--lime); color:#052229; border:none; border-radius:999px; padding:15px 26px;
+  display:flex; align-items:center; justify-content:center; gap:10px;
   transition:transform .15s, box-shadow .15s;
 }
+.sendbtn svg{width:18px; height:18px; flex:none}
 .sendbtn:hover{transform:translateY(-2px); box-shadow:0 12px 28px -14px rgba(34,211,238,.8)}
 .formnote{font-size:.84rem; color:var(--muted); margin:12px 0 0; text-align:center}
 .formmsg{display:none; text-align:center; padding:26px 8px}
@@ -854,7 +856,7 @@ footer a:hover{color:var(--lime)}
         <div class="edubadge"><img src="img/leiden.png?v=3" alt="Leiden University"></div>
         <div>
           <h3>MSc Computer Science — Data Science</h3>
-          <p class="eduorg">Leiden University (LIACS)</p>
+          <p class="eduorg">Leiden University</p>
         </div>
       </div>
       <div class="edumeta"><span>2025 – 2026</span><span>Leiden, Netherlands</span></div>
@@ -954,7 +956,7 @@ footer a:hover{color:var(--lime)}
         <label for="cmsg">Message</label>
         <textarea id="cmsg" name="message" placeholder="A role, a project, a collaboration, or just a hello — whatever brings you here." required></textarea>
       </div>
-      <button class="sendbtn" type="submit">Send message</button>
+      <button class="sendbtn" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg><span class="sendlabel">Send Message</span></button>
       <p class="formnote">Or email me directly at <a href="mailto:nvethiappan@gmail.com" style="color:var(--lime)">nvethiappan@gmail.com</a></p>
       </form>
       <div class="formmsg" id="cDone">
@@ -1084,15 +1086,15 @@ footer a:hover{color:var(--lime)}
   if(!form||!done) return;
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var btn=form.querySelector('.sendbtn'), label=btn.textContent;
-    btn.disabled=true; btn.textContent='Sending...';
+    var btn=form.querySelector('.sendbtn'), lab=btn.querySelector('.sendlabel'), label=lab.textContent;
+    btn.disabled=true; lab.textContent='Sending...';
     fetch(form.action,{method:'POST', body:new FormData(form), headers:{'Accept':'application/json'}})
       .then(function(r){
         if(r.ok){ form.style.display='none'; done.style.display='block'; }
         else { throw new Error('rejected'); }
       })
       .catch(function(){
-        btn.disabled=false; btn.textContent=label;
+        btn.disabled=false; lab.textContent=label;
         var n=form.querySelector('.formnote');
         n.innerHTML='Something went wrong sending that. Please email me directly at <a href="mailto:nvethiappan@gmail.com" style="color:var(--lime)">nvethiappan@gmail.com</a>.';
       });
