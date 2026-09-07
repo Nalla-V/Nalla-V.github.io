@@ -232,6 +232,57 @@ main{padding-bottom:40px}
 .skillcard:hover .tags li{border-color:#26404f}
 .tags li:hover{color:#fff; border-color:var(--lime); background:rgba(34,211,238,.1)}
 
+/* ---------------- experience ---------------- */
+.timeline{position:relative; padding-left:38px}
+.timeline::before{
+  content:""; position:absolute; left:7px; top:12px; bottom:12px; width:2px;
+  background:linear-gradient(to bottom, var(--lime), rgba(34,211,238,.15));
+}
+.job{position:relative; margin-bottom:22px}
+.job::before{
+  content:""; position:absolute; left:-38px; top:26px; width:16px; height:16px;
+  border-radius:50%; background:var(--paper); border:2px solid var(--lime);
+}
+.jobcard{
+  background:var(--card); border:1px solid var(--rule); border-radius:14px;
+  padding:24px 26px; transition:border-color .2s, box-shadow .2s;
+}
+.jobcard:hover{border-color:#2a4a5c; box-shadow:0 18px 38px -26px rgba(0,0,0,.9)}
+.jobtop{display:flex; gap:16px; align-items:flex-start}
+.badge-org{
+  flex:0 0 auto; width:52px; height:52px; border-radius:11px; display:grid; place-items:center;
+  background:rgba(34,211,238,.1); border:1px solid var(--rule);
+  color:var(--lime); font-weight:700; font-size:.9rem; letter-spacing:.02em;
+}
+.jobhead h3{font-size:1.12rem; margin:0 0 3px; font-weight:600}
+.org{color:var(--lime); font-weight:600; font-size:.98rem; margin:0 0 9px}
+.meta{display:flex; flex-wrap:wrap; gap:8px}
+.meta span{
+  font-size:.83rem; color:var(--muted); background:rgba(255,255,255,.04);
+  border:1px solid var(--rule); border-radius:7px; padding:4px 10px;
+}
+.summary{margin:16px 0 0; color:#c2cedb}
+details.more{margin-top:14px}
+details.more summary{
+  list-style:none; cursor:pointer; color:var(--lime); font-weight:600; font-size:.94rem;
+  display:inline-flex; align-items:center; gap:8px;
+}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"\25be"; font-size:.8rem; transition:transform .2s}
+details.more[open] summary::after{transform:rotate(180deg)}
+.achv{border-top:1px solid var(--rule); margin-top:16px; padding-top:16px}
+.achv h4{font-size:.86rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin:0 0 12px}
+.achv ul{margin:0; padding-left:18px}
+.achv li{margin:0 0 9px; color:#c2cedb; font-size:.96rem}
+.achv li::marker{color:var(--lime)}
+@media (max-width:640px){
+  .timeline{padding-left:26px}
+  .job::before{left:-26px; width:13px; height:13px; top:24px}
+  .jobcard{padding:20px 18px}
+  .jobtop{gap:12px}
+  .badge-org{width:44px; height:44px; font-size:.82rem}
+}
+
 @media (max-width:900px){
   .aboutgrid{grid-template-columns:1fr; gap:20px}
   .bgcard{position:static}
@@ -414,6 +465,114 @@ main{padding-bottom:40px}
         <li>Mainframe integration</li><li>DB2</li><li>SAP</li><li>Java APIs</li>
         <li>Systems integration</li><li>Legacy modernisation</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="experience">
+  <div class="sechead">
+    <h2>Professional <em>Journey</em></h2>
+    <p>Ten years across automotive and financial services, delivered from India, France and the Netherlands.</p>
+  </div>
+  <div class="timeline">
+    <div class="job">
+      <div class="jobcard">
+        <div class="jobtop">
+          <div class="badge-org">TM</div>
+          <div class="jobhead">
+            <h3>Tech Lead — Machine Learning &amp; Forecasting</h3>
+            <p class="org">Tech Mahindra · client: Nissan Automotive Europe</p>
+            <div class="meta"><span>Feb 2021 – Jan 2025</span><span>Chennai, India · Paris</span></div>
+          </div>
+        </div>
+        <p class="summary">Led the machine learning workstream for European parts demand forecasting, taking models from prototype through to the systems logistics teams use daily.</p>
+        <details class="more">
+          <summary>Key achievements</summary>
+          <div class="achv">
+            <h4>What I delivered</h4>
+            <ul>
+            <li>Extended the parts demand forecast horizon from six months to twelve, to absorb pandemic supply disruption.</li>
+            <li>Built hybrid forecasting models combining XGBoost, ARIMA and LSTMs, tuned with Optuna.</li>
+            <li>Engineered features from shipment schedules, supplier lead times and production constraints.</li>
+            <li>Integrated model output with legacy systems so forecasting and report generation ran end to end.</li>
+            <li>Delivered Power BI dashboards for logistics planning, inventory optimisation and vendor data exchange.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="job">
+      <div class="jobcard">
+        <div class="jobtop">
+          <div class="badge-org">CTS</div>
+          <div class="jobhead">
+            <h3>Senior Associate — Financial Crime &amp; Transaction Monitoring</h3>
+            <p class="org">Cognizant · client: KBC Bank</p>
+            <div class="meta"><span>Jan 2019 – Jan 2021</span><span>Chennai, India · Belgium</span></div>
+          </div>
+        </div>
+        <p class="summary">Built anomaly detection and risk scoring for a bank’s transaction monitoring and lending decisions, with the explainability compliance teams needed to sign them off.</p>
+        <details class="more">
+          <summary>Key achievements</summary>
+          <div class="achv">
+            <h4>What I delivered</h4>
+            <ul>
+            <li>Hybrid models (XGBoost, Isolation Forest, Autoencoder) on high-volume credit card data — behavioural, temporal and geolocation features <b>cut false positives by 30%</b>.</li>
+            <li>Kafka streaming for real-time transaction scoring and alert generation in a live monitoring pipeline.</li>
+            <li>Corporate loan risk-scoring models built from financial KPIs to support automated lending decisions.</li>
+            <li>SHAP explainability for EU regulatory compliance, with auditable deployment pipelines.</li>
+            <li>Power BI dashboards of fraud patterns, risk distributions and model performance for compliance and audit teams.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="job">
+      <div class="jobcard">
+        <div class="jobtop">
+          <div class="badge-org">TM</div>
+          <div class="jobhead">
+            <h3>Data Engineer — Pipelines &amp; Predictive Modelling</h3>
+            <p class="org">Tech Mahindra · client: Nissan Automotive Europe</p>
+            <div class="meta"><span>2017 – 2018</span><span>Paris, France</span></div>
+          </div>
+        </div>
+        <p class="summary">Replaced manual calculation and hand-maintained rules in a vehicle registration system with models, while keeping the underlying platform stable.</p>
+        <details class="more">
+          <summary>Key achievements</summary>
+          <div class="achv">
+            <h4>What I delivered</h4>
+            <ul>
+            <li>Regression models for dynamic WLTP emissions and weight calculation across <b>500+ vehicle variants</b>, cutting manual tuning by 25%.</li>
+            <li>Automated certificate generation, linking DB2 data with NLP modules covering 27 languages.</li>
+            <li>Defined the migration roadmap toward predictive modelling and modern APIs, automating 40% of validation tasks.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="job">
+      <div class="jobcard">
+        <div class="jobtop">
+          <div class="badge-org">TM</div>
+          <div class="jobhead">
+            <h3>Technical Consultant — Systems Integration</h3>
+            <p class="org">Tech Mahindra · client: Nissan Motor Corporation</p>
+            <div class="meta"><span>2015 – 2017</span><span>Amsterdam, Netherlands</span></div>
+          </div>
+        </div>
+        <p class="summary">Integration and automation work across finance, logistics and manufacturing systems, delivered onsite with the client.</p>
+        <details class="more">
+          <summary>Key achievements</summary>
+          <div class="achv">
+            <h4>What I delivered</h4>
+            <ul>
+            <li>Streamlined finance workflows for orders, invoicing and billing, integrated with SAP — <b>40% faster processing</b>.</li>
+            <li>Directed deployments and cross-application testing, coordinating onshore and offshore teams.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
     </div>
   </div>
 </section>
