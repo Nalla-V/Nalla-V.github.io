@@ -283,62 +283,43 @@ details.more[open] summary::after{transform:rotate(180deg)}
   .badge-org{width:96px; height:44px}
 }
 
-/* ---------------- projects carousel ---------------- */
-.carousel{position:relative}
-.track{
-  display:flex; gap:22px; overflow-x:auto; scroll-snap-type:x mandatory;
-  scrollbar-width:none; -ms-overflow-style:none; padding:4px 0 6px;
-}
-.track::-webkit-scrollbar{display:none}
-.slide{flex:0 0 100%; scroll-snap-align:center; min-width:0}
+/* ---------------- projects ---------------- */
+.pgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(322px,1fr)); gap:22px}
 .pcard{
-  background:var(--card); border:1px solid var(--rule); border-radius:16px; overflow:hidden;
-  display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); min-height:340px;
+  background:var(--card); border:1px solid var(--rule); border-radius:16px;
+  padding:26px 26px 24px; display:flex; flex-direction:column;
+  transition:border-color .2s, transform .2s, box-shadow .2s;
 }
-.pshot{background:#fff; display:grid; place-items:center; padding:22px; border-right:1px solid var(--rule)}
-.pshot img{width:100%; height:auto; max-height:300px; object-fit:contain; display:block}
-.pbody{padding:30px 32px; display:flex; flex-direction:column}
-.pkicker{font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 10px}
-.pbody h3{font-size:1.32rem; font-weight:600; margin:0 0 12px; line-height:1.25}
-.pbody p{margin:0 0 14px; color:#c2cedb; font-size:.97rem}
-.presult{color:var(--ink); font-size:.97rem; margin:0 0 18px}
-.presult b{color:var(--lime); font-weight:600}
-.pstack{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px; padding:0; list-style:none}
+.pcard:hover{border-color:#2a4a5c; transform:translateY(-4px); box-shadow:0 20px 40px -26px rgba(0,0,0,.95)}
+.pkicker{font-size:.75rem; letter-spacing:.11em; text-transform:uppercase; color:var(--muted); margin:0 0 12px}
+.pcard h3{font-size:1.15rem; font-weight:600; margin:0 0 12px; line-height:1.3}
+.pcard p{margin:0 0 16px; color:#c2cedb; font-size:.95rem}
+.stat{
+  border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+  padding:14px 0; margin:0 0 16px;
+}
+.stat .num{
+  display:block; font-size:1.75rem; font-weight:700; letter-spacing:-.02em;
+  color:var(--lime); line-height:1.1; margin-bottom:4px;
+}
+.stat .cap{font-size:.86rem; color:var(--muted); line-height:1.45}
+.pstack{display:flex; flex-wrap:wrap; gap:7px; margin:0 0 20px; padding:0; list-style:none}
 .pstack li{
-  font-size:.8rem; color:var(--muted); background:rgba(255,255,255,.04);
-  border:1px solid var(--rule); border-radius:100px; padding:4px 12px;
+  font-size:.78rem; color:var(--muted); background:rgba(255,255,255,.04);
+  border:1px solid var(--rule); border-radius:100px; padding:3px 11px;
+}
+.pacts{
+  margin-top:auto; display:flex; gap:10px; flex-wrap:wrap;
+  border-top:1px solid var(--rule); padding-top:18px;
 }
 .pbtn{
-  margin-top:auto; align-self:flex-start; text-decoration:none; font-size:.93rem; font-weight:600;
-  background:var(--lime); color:#052229; padding:11px 22px; border-radius:9px;
-  transition:transform .15s, box-shadow .15s;
+  display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+  font-size:.9rem; font-weight:600; padding:9px 16px; border-radius:9px;
+  border:1px solid var(--rule); color:var(--ink); background:rgba(255,255,255,.03);
+  transition:border-color .18s, color .18s, background .18s, transform .18s;
 }
-.pbtn:hover{transform:translateY(-2px); box-shadow:0 10px 24px -12px rgba(34,211,238,.7)}
-
-.arrow{
-  position:absolute; top:50%; transform:translateY(-50%); z-index:5;
-  width:46px; height:46px; border-radius:50%; cursor:pointer;
-  background:rgba(13,21,29,.9); border:1px solid var(--rule); color:var(--lime);
-  font-size:1.3rem; line-height:1; display:grid; place-items:center;
-  transition:background .18s, border-color .18s, transform .18s;
-}
-.arrow:hover{background:var(--lime); color:#052229; border-color:var(--lime)}
-.arrow.prev{left:-22px} .arrow.next{right:-22px}
-.arrow[disabled]{opacity:.3; cursor:default}
-.arrow[disabled]:hover{background:rgba(13,21,29,.9); color:var(--lime); border-color:var(--rule)}
-
-.dots{display:flex; justify-content:center; gap:10px; margin-top:26px}
-.dots button{
-  width:10px; height:10px; border-radius:50%; padding:0; cursor:pointer;
-  background:rgba(255,255,255,.18); border:none; transition:background .2s, width .2s;
-}
-.dots button.on{background:var(--lime); width:26px; border-radius:100px}
-
-@media (max-width:860px){
-  .pcard{grid-template-columns:1fr}
-  .pshot{border-right:none; border-bottom:1px solid var(--rule); padding:16px}
-  .pbody{padding:24px 22px}
-  .arrow.prev{left:2px} .arrow.next{right:2px}
+.pbtn:hover{border-color:var(--lime); color:var(--lime); transform:translateY(-2px)}
+.pbtn svg{width:15px; height:15px; fill:currentColor; flex:none}
 }
 
 @media (max-width:900px){
@@ -641,91 +622,57 @@ details.more[open] summary::after{transform:rotate(180deg)}
     <p>Each repository leads with the result — including the experiments that went against the method — and ships the full report with the code.</p>
   </div>
 
-  <div class="carousel">
-    <button class="arrow prev" id="pPrev" aria-label="Previous project">&#8249;</button>
-    <div class="track" id="pTrack">
-      <div class="slide">
-        <article class="pcard">
-          <div class="pshot"><img src="img/ave.jpg" alt="Zero-shot accuracy across seven vision-language models" loading="lazy"></div>
-          <div class="pbody">
-            <p class="pkicker">Research · Master’s thesis</p>
-            <h3>Atomic Visual Entailment</h3>
-            <p>Decomposing a claim about an image into atomic facts so a frozen vision-language model can be checked one fact at a time, instead of trusted for a single verdict. No fine-tuning, no API cost.</p>
-            <p class="presult">Improved zero-shot accuracy on SNLI-VE by <b>12–25 percentage points</b> over prior zero-shot and hybrid methods.</p>
-            <ul class="pstack"><li>PyTorch</li><li>Qwen</li><li>InternVL</li><li>LLaVA</li><li>XGBoost</li><li>Grounding DINO</li></ul>
-            <a class="pbtn" href="https://github.com/Nalla-V/atomic-visual-entailment">View project</a>
-          </div>
-        </article>
-      </div>
-      <div class="slide">
-        <article class="pcard">
-          <div class="pshot"><img src="img/clock.jpg" alt="Training and validation curves for the sin/cos model" loading="lazy"></div>
-          <div class="pbody">
-            <p class="pkicker">Deep learning</p>
-            <h3>Reading Analog Clocks with CNNs</h3>
-            <p>Five ways of representing clock time for the same convolutional network, on the same 18,000 images. Only the output representation changed.</p>
-            <p class="presult">Error moved from <b>182.93 minutes — chance — to 8.52</b>. The most precise-looking formulation was the worst.</p>
-            <ul class="pstack"><li>TensorFlow</li><li>Keras</li><li>CNN</li><li>Cyclical encoding</li></ul>
-            <a class="pbtn" href="https://github.com/Nalla-V/tell-the-time-cnn">View project</a>
-          </div>
-        </article>
-      </div>
-      <div class="slide">
-        <article class="pcard">
-          <div class="pshot"><img src="img/rl.jpg" alt="PPO, A2C and DQN mean reward over one million steps" loading="lazy"></div>
-          <div class="pbody">
-            <p class="pkicker">Reinforcement learning</p>
-            <h3>Policy Gradients and PPO on CartPole</h3>
-            <p>Three studies covering DQN variants, policy gradient methods and PPO with GAE, all implemented from scratch and run for a million steps across five seeds.</p>
-            <p class="presult">PPO’s advantage turned out to be <b>variance rather than ceiling</b> — A2C reaches the same peak and cannot hold it.</p>
-            <ul class="pstack"><li>PyTorch</li><li>Gymnasium</li><li>PPO</li><li>A2C</li><li>DQN</li></ul>
-            <a class="pbtn" href="https://github.com/Nalla-V/ppo-cartpole">View project</a>
-          </div>
-        </article>
-      </div>
-      <div class="slide">
-        <article class="pcard">
-          <div class="pshot"><img src="img/azure.jpg" alt="Latency and throughput, one container against two" loading="lazy"></div>
-          <div class="pbody">
-            <p class="pkicker">Cloud engineering</p>
-            <h3>Distributed Video Processing on Azure</h3>
-            <p>Five queue-coordinated microservices splitting, watermarking, thumbnailing and reassembling video in parallel, with a central aggregator tracking job state.</p>
-            <p class="presult">A fire-and-forget messaging pattern that <b>avoids lock contention</b> across services.</p>
-            <ul class="pstack"><li>Azure Container Apps</li><li>Service Bus</li><li>Cosmos DB</li><li>Docker</li></ul>
-            <a class="pbtn" href="https://github.com/Nalla-V/azure-video-watermarking">View project</a>
-          </div>
-        </article>
-      </div>
-      <div class="slide">
-        <article class="pcard">
-          <div class="pshot"><img src="img/rec.jpg" alt="Recall@10 across blend configurations" loading="lazy"></div>
-          <div class="pbody">
-            <p class="pkicker">Recommender systems</p>
-            <h3>Hybrid Recommender Under Sparsity</h3>
-            <p>Item-kNN, sequential co-occurrence, TF-IDF and popularity blended for Amazon beauty products, tuned against a deliberately hard evaluation.</p>
-            <p class="presult">Built for a dataset where <b>93% of users have a single interaction</b>, which defeats collaborative filtering alone.</p>
-            <ul class="pstack"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>TF-IDF</li></ul>
-            <a class="pbtn" href="https://github.com/Nalla-V/amazon-product-recommender">View project</a>
-          </div>
-        </article>
-      </div>
-      <div class="slide">
-        <article class="pcard">
-          <div class="pshot"><img src="img/graph.jpg" alt="Approximation error by landmark selection strategy" loading="lazy"></div>
-          <div class="pbody">
-            <p class="pkicker">Algorithms</p>
-            <h3>Landmark Shortest-Path Estimation</h3>
-            <p>Approximate shortest-path distances in large graphs, comparing seven landmark selection strategies across real social network datasets.</p>
-            <p class="presult">Which nodes you pick as landmarks matters <b>far more than how many</b> you pick.</p>
-            <ul class="pstack"><li>Python</li><li>NetworkX</li><li>Graph algorithms</li></ul>
-            <a class="pbtn" href="https://github.com/Nalla-V/landmark-shortest-path-estimation">View project</a>
-          </div>
-        </article>
-      </div>
-    </div>
-    <button class="arrow next" id="pNext" aria-label="Next project">&#8250;</button>
+  <div class="pgrid">
+    <article class="pcard">
+      <p class="pkicker">Research · Master’s thesis</p>
+      <h3>Atomic Visual Entailment</h3>
+      <p>Decomposing a claim about an image into atomic facts so a frozen vision-language model can be checked one fact at a time, instead of trusted for a single verdict. No fine-tuning, no API cost.</p>
+      <div class="stat"><span class="num">12–25 pp</span><span class="cap">higher zero-shot accuracy on SNLI-VE than prior zero-shot and hybrid methods</span></div>
+      <ul class="pstack"><li>PyTorch</li><li>Qwen</li><li>InternVL</li><li>LLaVA</li><li>XGBoost</li></ul>
+      <div class="pacts"><a class="pbtn" href="https://github.com/Nalla-V/atomic-visual-entailment"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg> GitHub</a><a class="pbtn" href="https://github.com/Nalla-V/atomic-visual-entailment/blob/HEAD/thesis.pdf"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2.5L17.5 8H14zM8 13h8v1.6H8zm0 3.4h8V18H8zm0-6.8h4v1.6H8z"/></svg> Read thesis</a></div>
+    </article>
+    <article class="pcard">
+      <p class="pkicker">Deep learning</p>
+      <h3>Reading Analog Clocks with CNNs</h3>
+      <p>Five ways of representing clock time for the same convolutional network on the same 18,000 images. Only the output representation changed.</p>
+      <div class="stat"><span class="num">182.93 → 8.52</span><span class="cap">minutes of error, from chance to near-solved, by changing the label encoding alone</span></div>
+      <ul class="pstack"><li>TensorFlow</li><li>Keras</li><li>CNN</li><li>Cyclical encoding</li></ul>
+      <div class="pacts"><a class="pbtn" href="https://github.com/Nalla-V/tell-the-time-cnn"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg> GitHub</a><a class="pbtn" href="https://github.com/Nalla-V/tell-the-time-cnn/blob/HEAD/report.pdf"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2.5L17.5 8H14zM8 13h8v1.6H8zm0 3.4h8V18H8zm0-6.8h4v1.6H8z"/></svg> Read report</a></div>
+    </article>
+    <article class="pcard">
+      <p class="pkicker">Reinforcement learning</p>
+      <h3>Policy Gradients and PPO on CartPole</h3>
+      <p>DQN variants, policy gradient methods and PPO with GAE, implemented from scratch and run for a million steps across five seeds.</p>
+      <div class="stat"><span class="num">Variance, not ceiling</span><span class="cap">PPO’s real advantage — A2C reaches the same peak and cannot hold it</span></div>
+      <ul class="pstack"><li>PyTorch</li><li>Gymnasium</li><li>PPO</li><li>A2C</li><li>DQN</li></ul>
+      <div class="pacts"><a class="pbtn" href="https://github.com/Nalla-V/ppo-cartpole"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg> GitHub</a><a class="pbtn" href="https://github.com/Nalla-V/ppo-cartpole/blob/HEAD/report.pdf"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2.5L17.5 8H14zM8 13h8v1.6H8zm0 3.4h8V18H8zm0-6.8h4v1.6H8z"/></svg> Read report</a></div>
+    </article>
+    <article class="pcard">
+      <p class="pkicker">Cloud engineering</p>
+      <h3>Distributed Video Processing on Azure</h3>
+      <p>Five queue-coordinated microservices splitting, watermarking, thumbnailing and reassembling video in parallel, with a central aggregator tracking job state.</p>
+      <div class="stat"><span class="num">5 services</span><span class="cap">coordinated by fire-and-forget messaging, avoiding lock contention</span></div>
+      <ul class="pstack"><li>Azure Container Apps</li><li>Service Bus</li><li>Cosmos DB</li><li>Docker</li></ul>
+      <div class="pacts"><a class="pbtn" href="https://github.com/Nalla-V/azure-video-watermarking"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg> GitHub</a><a class="pbtn" href="https://github.com/Nalla-V/azure-video-watermarking/blob/HEAD/report.pdf"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2.5L17.5 8H14zM8 13h8v1.6H8zm0 3.4h8V18H8zm0-6.8h4v1.6H8z"/></svg> Read report</a></div>
+    </article>
+    <article class="pcard">
+      <p class="pkicker">Recommender systems</p>
+      <h3>Hybrid Recommender Under Sparsity</h3>
+      <p>Item-kNN, sequential co-occurrence, TF-IDF and popularity blended for Amazon beauty products, tuned against a deliberately hard evaluation.</p>
+      <div class="stat"><span class="num">93%</span><span class="cap">of users have a single interaction — collaborative filtering alone cannot work</span></div>
+      <ul class="pstack"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>TF-IDF</li></ul>
+      <div class="pacts"><a class="pbtn" href="https://github.com/Nalla-V/amazon-product-recommender"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg> GitHub</a><a class="pbtn" href="https://github.com/Nalla-V/amazon-product-recommender/blob/HEAD/report.pdf"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2.5L17.5 8H14zM8 13h8v1.6H8zm0 3.4h8V18H8zm0-6.8h4v1.6H8z"/></svg> Read report</a></div>
+    </article>
+    <article class="pcard">
+      <p class="pkicker">Algorithms</p>
+      <h3>Landmark Shortest-Path Estimation</h3>
+      <p>Approximate shortest-path distances in large graphs, comparing seven landmark selection strategies across real social network datasets.</p>
+      <div class="stat"><span class="num">Which, not how many</span><span class="cap">landmark selection matters far more than landmark count</span></div>
+      <ul class="pstack"><li>Python</li><li>NetworkX</li><li>Graph algorithms</li></ul>
+      <div class="pacts"><a class="pbtn" href="https://github.com/Nalla-V/landmark-shortest-path-estimation"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg> GitHub</a><a class="pbtn" href="https://github.com/Nalla-V/landmark-shortest-path-estimation/blob/HEAD/Course_project_Report.pdf"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2.5L17.5 8H14zM8 13h8v1.6H8zm0 3.4h8V18H8zm0-6.8h4v1.6H8z"/></svg> Read report</a></div>
+    </article>
   </div>
-  <div class="dots" id="pDots"></div>
+
   <p class="allrepos" style="text-align:center;margin-top:22px"><a href="https://github.com/Nalla-V" style="color:var(--lime)">All eighteen repositories on GitHub</a></p>
 </section>
 
@@ -793,45 +740,7 @@ details.more[open] summary::after{transform:rotate(180deg)}
   });
   shot.addEventListener('mouseleave', function(){ frame.style.transform = ''; });
 })();
-/* projects carousel */
-(function(){
-  var track=document.getElementById('pTrack');
-  if(!track) return;
-  var slides=[].slice.call(track.children),
-      dots=document.getElementById('pDots'),
-      prev=document.getElementById('pPrev'),
-      next=document.getElementById('pNext'), i=0;
-  slides.forEach(function(_,n){
-    var b=document.createElement('button');
-    b.setAttribute('aria-label','Go to project '+(n+1));
-    b.addEventListener('click',function(){ go(n); });
-    dots.appendChild(b);
-  });
-  function go(n){
-    i=Math.max(0,Math.min(slides.length-1,n));
-    track.scrollTo({left:slides[i].offsetLeft-track.offsetLeft, behavior:'smooth'});
-    sync();
-  }
-  function sync(){
-    [].slice.call(dots.children).forEach(function(d,n){ d.classList.toggle('on', n===i); });
-    prev.disabled = i===0; next.disabled = i===slides.length-1;
-  }
-  prev.addEventListener('click',function(){ go(i-1); });
-  next.addEventListener('click',function(){ go(i+1); });
-  var t;
-  track.addEventListener('scroll',function(){
-    clearTimeout(t);
-    t=setTimeout(function(){
-      var mid=track.scrollLeft+track.clientWidth/2, best=0, bd=1e9;
-      slides.forEach(function(sl,n){
-        var c=sl.offsetLeft-track.offsetLeft+sl.clientWidth/2, d=Math.abs(c-mid);
-        if(d<bd){bd=d;best=n;}
-      });
-      i=best; sync();
-    },90);
-  },{passive:true});
-  sync();
-})();
+
 
 </script>
 
