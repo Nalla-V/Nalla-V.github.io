@@ -74,7 +74,13 @@
         color:var(--ink-soft);max-width:64ch;font-size:.97rem}
   .note strong{color:var(--ink);font-weight:500}
   .note p{margin:0 0 10px} .note p:last-child{margin:0}
-  footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--rule-soft);color:var(--ink-faint);font-size:.86rem}
+  footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--rule-soft);
+    color:var(--ink-faint);font-size:.84rem;max-width:72ch;line-height:1.5}
+  footer a{color:var(--ink-soft)}
+  .settings .line{display:flex;flex-wrap:wrap;gap:4px 10px;margin:0 0 7px;font-size:.9rem}
+  .settings .line .k{color:var(--ink-faint);min-width:16ch}
+  .settings .line .v{color:var(--ink)}
+  .settings .verdict{margin:12px 0 0;font-size:.94rem;color:var(--ink-soft);max-width:66ch}
   @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
 </head>
@@ -107,21 +113,12 @@
     <canvas id="curve"></canvas>
   </div>
 
-  <div class="settings">
-    <h2>Settings</h2>
-    <p><b>DQN</b> &middot; 4-64-2 Q-network, lr 3e-4, batch 64 from a 50k replay buffer, 1000-step
-      warmup, target network synced every 1000 steps, Huber loss, &epsilon; from 1.0 decaying
-      &times;0.999 to 0.05.</p>
-    <p><b>A2C</b> &middot; 4-64 policy and value networks, lr 7e-4, 5-step rollouts, n-step
-      discounted returns, entropy bonus 0.01.</p>
-    <p><b>PPO</b> &middot; 4-64 policy and value networks, lr 1e-3, 640-step rollouts, 10 epochs over
-      the full batch, clip &epsilon; 0.2, GAE &lambda; 0.95, entropy bonus 0.01.</p>
-    <p><b>Shared</b> &middot; &gamma; 0.99, Adam, 250,000 steps, one seed each. Smaller networks and a
-      shorter budget than the study, so the ordering here is not its result. Full write-up in the
-      <a href="https://github.com/Nalla-V/ppo-cartpole">repository</a>.</p>
-  </div>
+  <div class="settings" id="result"></div>
 
-  <footer>CartPole-v1, episodes capped at 500 steps. Solved is a mean return of 475 or better.</footer>
+  <footer>CartPole-v1, episodes capped at 500 steps. Solved is a mean return of 475 or better.
+    64-unit networks, 250,000 steps, one seed each; PPO lr 1e-3, A2C 7e-4, DQN 3e-4. Smaller and
+    shorter than the study, whose five-seed results are in the
+    <a href="https://github.com/Nalla-V/ppo-cartpole">repository</a>.</footer>
 </div>
 
 <script>
@@ -679,6 +676,53 @@ function drawCurve(){
   }
 }
 
+function renderResult(){
+  const el = document.getElementById("result");
+  const any = ORDER.some(n=>agents[n].curve.length);
+  if (!any){ el.innerHTML = '<h2>Result</h2><p class="verdict">Press Run to train the three agents and produce a result.</p>'; return; }
+
+  const rows = ORDER.map(n=>{
+    const a = agents[n], c = a.curve;
+    const after = a.solvedAt===null ? [] : c.filter(([s])=>s>a.solvedAt).map(([,v])=>v);
+    return {
+      n, solvedAt: a.solvedAt,
+      low: after.length ? Math.min(...after) : null,
+      last: c.length ? c[c.length-1][1] : 0,
+      done: a.done
+    };
+  });
+
+  const solved = rows.filter(r=>r.solvedAt!==null).sort((a,b)=>a.solvedAt-b.solvedAt);
+  const withLow = rows.filter(r=>r.low!==null).sort((a,b)=>b.low-a.low);
+  const byLast = rows.slice().sort((a,b)=>b.last-a.last);
+
+  const fmt = r => r.n+" "+r.last.toFixed(0);
+  let html = "<h2>Result</h2>";
+
+  html += '<div class="line"><span class="k">First to 475</span><span class="v">' +
+    (solved.length ? solved.map(r=>r.n+" at "+(r.solvedAt/1000)+"k").join(" &middot; ")
+                   : "none yet") + "</span></div>";
+
+  if (withLow.length)
+    html += '<div class="line"><span class="k">Lowest return after that</span><span class="v">' +
+      withLow.map(r=>r.n+" "+r.low.toFixed(0)).join(" &middot; ") + "</span></div>";
+
+  html += '<div class="line"><span class="k">Return at ' +
+    (rows[0].done ? "250k" : (Math.min(...ORDER.map(n=>agents[n].steps))/1000).toFixed(0)+"k") +
+    '</span><span class="v">' + byLast.map(fmt).join(" &middot; ") + "</span></div>";
+
+  if (rows.every(r=>r.done) && withLow.length >= 2){
+    const top = withLow[0], bot = withLow[withLow.length-1];
+    const never = rows.filter(r=>r.solvedAt===null).map(r=>r.n);
+    let v = "After first reaching 475, " + top.n + " never fell below " + top.low.toFixed(0) +
+            ", while " + bot.n + " dropped to " + bot.low.toFixed(0) + ". ";
+    v += (never.length ? never.join(" and ")+" did not reach 475 in this run. " : "");
+    v += "Reaching the threshold and holding it are separate questions, and this run is one seed.";
+    html += '<p class="verdict">'+v+'</p>';
+  }
+  el.innerHTML = html;
+}
+
 function paint(){
   let minSteps = Infinity;
   for (const n of ORDER){
@@ -696,10 +740,11 @@ function paint(){
     drawLane(n);
   }
   drawCurve();
+  renderResult();
   const pct = Math.min(100, minSteps/BUDGET*100);
   document.getElementById("fill").style.width = pct+"%";
   document.getElementById("progtxt").textContent =
-    minSteps.toLocaleString()+" / "+BUDGET.toLocaleString()+" steps";
+    minSteps.toLocaleString("en-US")+" / "+BUDGET.toLocaleString("en-US")+" steps";
 }
 
 function frame(now){
