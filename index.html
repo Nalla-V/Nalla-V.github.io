@@ -48,8 +48,20 @@ a:focus-visible{outline:2px solid var(--green-2); outline-offset:3px; border-rad
   text-decoration:none; letter-spacing:.06em; white-space:nowrap; color:#fff;
 }
 .nav.stuck .brand{color:var(--ink)}
-.brand .br{color:var(--lime); font-weight:600}
-.nav.stuck .brand .br{color:var(--green-2)}
+.brand .br{font-weight:600}
+.brand .br.l{color:var(--lime)}
+.brand .br.r{color:#e2c15c}
+.brand .mono{
+  padding:0 7px;
+  background:linear-gradient(100deg,#5eead4 0%,#7fd48f 50%,#e2c15c 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.nav.stuck .brand .br.l{color:var(--green-2)}
+.nav.stuck .brand .br.r{color:#b08d1e}
+.nav.stuck .brand .mono{
+  background:linear-gradient(100deg,#137a63 0%,#3f8f5a 50%,#b08d1e 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
 .navlinks{display:flex; gap:4px; overflow-x:auto; scrollbar-width:none}
 .navlinks::-webkit-scrollbar{display:none}
 .navlinks a{
@@ -70,8 +82,16 @@ a:focus-visible{outline:2px solid var(--green-2); outline-offset:3px; border-rad
     radial-gradient(760px 520px at 12% 88%, rgba(16,132,110,.24), transparent 66%),
     linear-gradient(165deg, #0a2521 0%, var(--deep) 46%, #061a17 100%);
 }
+.hero::before{
+  content:""; position:absolute; inset:0; pointer-events:none; z-index:1;
+  background-image:radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px);
+  background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(900px 560px at 70% 30%, #000 0%, transparent 72%);
+  mask-image:radial-gradient(900px 560px at 70% 30%, #000 0%, transparent 72%);
+  opacity:.5;
+}
 .hero::after{
-  content:""; position:absolute; inset:auto 0 -1px 0; height:120px; pointer-events:none;
+  content:""; position:absolute; inset:auto 0 -1px 0; height:120px; pointer-events:none; z-index:1;
   background:linear-gradient(to bottom, transparent, var(--paper));
 }
 .hero .wrap{position:relative; z-index:2}
@@ -80,7 +100,7 @@ a:focus-visible{outline:2px solid var(--green-2); outline-offset:3px; border-rad
   grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
   gap:64px; align-items:center;
 }
-.hi{font-size:1.02rem; color:var(--lime); margin:0 0 10px; font-weight:500}
+.hi{font-size:clamp(1.15rem,1.9vw,1.4rem); color:var(--lime); margin:0 0 12px; font-weight:500; letter-spacing:.01em}
 h1{
   font-weight:700; font-size:clamp(1.85rem,4.1vw,3.05rem); line-height:1.06;
   letter-spacing:-.03em; margin:0 0 16px; white-space:nowrap;
@@ -104,12 +124,13 @@ h1 em{
 .bio{color:rgba(255,255,255,.9); max-width:52ch; margin:0 0 26px}
 .social{display:flex; gap:10px; margin:0 0 30px}
 .social a{
-  width:42px; height:42px; border-radius:10px; display:grid; place-items:center;
-  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
-  transition:background .15s, transform .15s;
+  width:44px; height:44px; border-radius:50%; display:grid; place-items:center;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16);
+  transition:background .2s, border-color .2s, box-shadow .2s;
 }
-.social a:hover{background:rgba(255,255,255,.22); transform:translateY(-2px)}
-.social svg{width:19px; height:19px; fill:#fff}
+.social a:hover{background:var(--lime); border-color:var(--lime); box-shadow:0 0 22px -4px rgba(94,234,212,.55)}
+.social svg{width:19px; height:19px; fill:#fff; transition:fill .2s}
+.social a:hover svg{fill:#062a23}
 .cta{display:flex; flex-wrap:wrap; gap:13px}
 .btn{
   display:inline-flex; align-items:center; gap:9px; text-decoration:none;
@@ -171,10 +192,9 @@ h1 em{
 
 <nav class="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><span class="br">{</span> NV <span class="br">}</span></a>
+    <a class="brand" href="#top"><span class="br l">{</span><span class="mono">NV</span><span class="br r">}</span></a>
     <div class="navlinks">
-      <a href="#top" class="on">Home</a>
-      <a href="#about">About</a>
+      <a href="#about" class="on">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
