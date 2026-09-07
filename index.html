@@ -97,7 +97,7 @@ a:focus-visible{outline:2px solid var(--green-2); outline-offset:3px; border-rad
 }
 .hero .wrap{position:relative; z-index:2}
 .hero .wrap{
-  padding:150px 26px 96px; display:grid;
+  padding:126px 26px 76px; display:grid;
   grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
   gap:64px; align-items:center;
 }
@@ -121,9 +121,9 @@ h1 em{
   vertical-align:-.14em; margin-left:3px; animation:blink 1.05s steps(1) infinite;
 }
 @keyframes blink{50%{opacity:0}}
-.based{color:rgba(255,255,255,.78); font-size:.98rem; margin:0 0 16px}
-.bio{color:rgba(255,255,255,.9); max-width:52ch; margin:0 0 26px}
-.social{display:flex; gap:10px; margin:0 0 30px}
+.based{color:rgba(255,255,255,.78); font-size:.96rem; margin:0 0 14px}
+.bio{color:rgba(255,255,255,.9); max-width:54ch; margin:0 0 24px; font-size:1rem}
+.social{display:flex; gap:10px; margin:0 0 26px}
 .social a{
   width:44px; height:44px; border-radius:50%; display:grid; place-items:center;
   background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16);
@@ -265,7 +265,7 @@ main{padding-bottom:40px}
       <h1>Nallathambi <em>Vethiappan</em></h1>
       <p class="role"><span id="typed"></span><span class="cursor"></span></p>
       <p class="based">Based in Amsterdam, Netherlands</p>
-      <p class="bio">I build machine learning systems that run in production — credit risk scoring, credit card and transaction monitoring for financial crime, demand forecasting for automotive supply chains, and vision-language models that can explain their own reasoning. Ten years in industry, six of them building and deploying machine learning at senior and lead level — which is why I care as much about whether a system holds up in production as about how it scores on a test set.</p>
+      <p class="bio">I build machine learning systems that run in production — credit risk scoring, financial crime monitoring, demand forecasting, and vision-language models that explain their own reasoning. Ten years in industry, six of them in machine learning at senior and lead level.</p>
       <div class="social">
         <a href="https://github.com/Nalla-V" aria-label="GitHub">
           <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
@@ -373,6 +373,25 @@ main{padding-bottom:40px}
   var nav = document.querySelector('.nav');
   function onScroll(){ nav.classList.toggle('stuck', window.scrollY > 40); }
   onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+})();
+
+/* highlight the nav link for the section in view */
+(function(){
+  var links = {}, targets = [];
+  document.querySelectorAll('.navlinks a').forEach(function(a){
+    var id = a.getAttribute('href').replace('#','');
+    var el = document.getElementById(id);
+    if (el){ links[id] = a; targets.push(el); }
+  });
+  if (!targets.length || !('IntersectionObserver' in window)) return;
+  var visible = {};
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ visible[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0; });
+    var best = null, top = 0;
+    for (var id in visible){ if (visible[id] > top){ top = visible[id]; best = id; } }
+    for (var k in links) links[k].classList.toggle('on', k === best);
+  }, {rootMargin:'-72px 0px -55% 0px', threshold:[0,.15,.35,.6,1]});
+  targets.forEach(function(t){ io.observe(t); });
 })();
 
 /* photo tilts toward the cursor */
