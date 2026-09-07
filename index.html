@@ -2,352 +2,424 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nallathambi Vethiappan — Data Scientist</title>
 <meta name="description" content="Data scientist in Amsterdam. Ten years across mainframe systems, data engineering and machine learning in automotive and banking, followed by an MSc in Computer Science at Leiden University.">
+<meta property="og:title" content="Nallathambi Vethiappan — Data Scientist">
+<meta property="og:description" content="Ten years in production engineering, then an MSc in Data Science and AI. Machine learning, NLP and vision-language work.">
+<meta property="og:image" content="https://nalla-v.github.io/profile.jpg">
+<meta property="og:url" content="https://nalla-v.github.io">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#eef0ee;
-    --card:#f7f8f7;
-    --ink:#14211f;
-    --muted:#5b6b68;
-    --rule:#cdd4d1;
-    --accent:#2e5e4e;
-    --measure:64ch;
-  }
+:root{
+  --paper:#eef0ee; --card:#fafbfa; --ink:#14211f; --muted:#5b6b68;
+  --rule:#d3d9d6; --accent:#2e5e4e; --accent-soft:#e4ece8;
+  --shadow:0 1px 2px rgba(20,33,31,.05), 0 8px 24px -16px rgba(20,33,31,.28);
+}
+@media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    @media (prefers-color-scheme: dark){
-      --paper:#131817;
-      --card:#181e1d;
-      --ink:#e6eae8;
-      --muted:#9aa8a4;
-      --rule:#2c3634;
-      --accent:#7fb79f;
-    }
+    --paper:#111615; --card:#181f1e; --ink:#e7ebe9; --muted:#9aa8a4;
+    --rule:#2b3533; --accent:#84bda4; --accent-soft:#1c2a26;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.7);
   }
-  :root[data-theme="dark"]{
-    --paper:#131817; --card:#181e1d; --ink:#e6eae8;
-    --muted:#9aa8a4; --rule:#2c3634; --accent:#7fb79f;
-  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:74px; -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
+.wrap{max-width:1020px; margin:0 auto; padding:0 24px}
 
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{
-    margin:0; background:var(--paper); color:var(--ink);
-    font-family:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-    font-size:17px; line-height:1.62;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:860px; margin:0 auto; padding:0 24px}
-  a{color:inherit; text-decoration:none}
-  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+/* ---------- sticky nav ---------- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.nav .wrap{display:flex; align-items:center; justify-content:space-between; gap:18px; height:60px}
+.brand{font-family:"IBM Plex Serif",Georgia,serif; font-weight:600; font-size:1.02rem; text-decoration:none; white-space:nowrap}
+.navlinks{display:flex; gap:22px; overflow-x:auto; scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{
+  text-decoration:none; font-size:.92rem; color:var(--muted);
+  white-space:nowrap; padding:4px 0; border-bottom:2px solid transparent;
+}
+.navlinks a:hover{color:var(--ink); border-bottom-color:var(--accent)}
 
-  /* ---------- masthead ---------- */
-  .band{background:var(--card); border-bottom:1px solid var(--rule)}
-  header{padding:76px 0 60px}
-  .masthead{display:grid; grid-template-columns:132px 1fr; column-gap:34px; align-items:start}
-  .portrait{
-    width:132px; height:132px; border-radius:4px; object-fit:cover;
-    display:block; filter:saturate(.92);
-    box-shadow:0 0 0 1px var(--rule);
-  }
-  h1{
-    font-family:"IBM Plex Serif", Georgia, serif;
-    font-weight:600; font-size:clamp(2.1rem,6vw,3.05rem);
-    line-height:1.08; letter-spacing:-.015em; margin:-6px 0 18px;
-  }
-  .lede{
-    font-size:clamp(1.05rem,2.4vw,1.18rem); line-height:1.58;
-    max-width:var(--measure); margin:0 0 14px; color:var(--ink);
-  }
-  .place{color:var(--muted); margin:0 0 26px; font-size:.97rem}
-  .links{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:.97rem}
-  .links a{
-    color:var(--accent); font-weight:500;
-    border-bottom:1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-    padding-bottom:1px;
-  }
-  .links a:hover{border-bottom-color:var(--accent)}
+/* ---------- hero ---------- */
+.hero{border-bottom:1px solid var(--rule); background:var(--card)}
+.hero .wrap{padding:104px 24px 96px}
+.dot{
+  display:inline-block; width:7px; height:7px; border-radius:50%;
+  background:var(--accent); margin-right:8px; vertical-align:1px;
+}
+.eyebrow{
+  display:inline-flex; align-items:center; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--accent); background:var(--accent-soft); padding:6px 13px; border-radius:100px; margin-bottom:26px;
+}
+h1{
+  font-family:"IBM Plex Serif",Georgia,serif; font-weight:600;
+  font-size:clamp(2.2rem,6.4vw,3.5rem); line-height:1.06;
+  letter-spacing:-.02em; margin:0 0 18px;
+}
+.tagline{font-size:clamp(1.08rem,2.5vw,1.3rem); line-height:1.55; max-width:60ch; margin:0 0 12px}
+.subline{color:var(--muted); margin:0 0 30px; max-width:60ch}
+.cta{display:flex; flex-wrap:wrap; gap:12px}
+.btn{
+  display:inline-block; text-decoration:none; font-size:.95rem; font-weight:500;
+  padding:10px 20px; border-radius:4px; border:1px solid var(--accent);
+}
+.btn.solid{background:var(--accent); color:var(--paper)}
+.btn.solid:hover{filter:brightness(1.12)}
+.btn.ghost{color:var(--accent)}
+.btn.ghost:hover{background:var(--accent-soft)}
 
-  /* ---------- sections ---------- */
-  section{padding:14px 0 46px}
-  h2{
-    font-family:"IBM Plex Serif", Georgia, serif;
-    font-size:1.42rem; font-weight:600; letter-spacing:-.01em;
-    margin:0 0 6px; padding:36px 0 0 18px; position:relative;
-    border-top:1px solid var(--rule);
-  }
-  h2::before{
-    content:""; position:absolute; left:0; top:41px;
-    width:4px; height:1.05em; background:var(--accent); border-radius:1px;
-  }
-  .note{color:var(--muted); font-size:.95rem; margin:0 0 30px; padding-left:18px; max-width:var(--measure)}
-  p{max-width:var(--measure)}
+/* ---------- sections ---------- */
+section{padding:104px 0 10px}
+.shead{margin:0 0 8px}
+.snum{
+  display:block; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:12px;
+}
+h2{
+  font-family:"IBM Plex Serif",Georgia,serif; font-size:1.75rem;
+  font-weight:600; letter-spacing:-.015em; margin:0;
+}
+.sub{color:var(--muted); font-size:1rem; margin:10px 0 42px; max-width:64ch}
 
-  /* ---------- the year spine ---------- */
-  .entry{
-    display:grid; grid-template-columns:92px 1fr; column-gap:30px;
-    padding:0 0 34px; position:relative;
-  }
-  .entry:last-child{padding-bottom:6px}
-  .years{
-    font-variant-numeric:tabular-nums; font-size:.88rem; color:var(--muted);
-    text-align:right; padding-top:5px; white-space:nowrap;
-  }
-  .spine{
-    position:relative; border-left:1px solid var(--rule);
-    padding-left:30px; margin-left:-15px;
-  }
-  .entry:last-child .spine{border-left-color:transparent}
-  .spine::before{
-    content:""; position:absolute; left:-4.5px; top:11px;
-    width:8px; height:8px; border-radius:50%;
-    background:var(--accent);
-  }
-  .role{font-weight:600; font-size:1.05rem; margin:0}
-  .org{color:var(--muted); font-size:.95rem; margin:2px 0 10px}
-  .entry ul{margin:0; padding-left:18px}
-  .entry li{margin:0 0 6px; max-width:60ch}
-  .entry li::marker{color:var(--rule)}
+/* ---------- about ---------- */
+.about{display:grid; grid-template-columns:190px 1fr; gap:36px; align-items:start}
+.portrait{width:190px; height:190px; object-fit:cover; border-radius:5px; display:block; box-shadow:var(--shadow)}
+.about p{margin:0 0 14px; max-width:62ch}
+.about p:last-child{margin-bottom:0}
 
-  /* ---------- skills ---------- */
-  .skills{margin:0; display:grid; grid-template-columns:150px 1fr; column-gap:30px}
-  .skills dt{
-    font-size:.88rem; color:var(--muted); padding-top:3px;
-    border-top:1px solid var(--rule);
-  }
-  .skills dd{
-    margin:0; padding:3px 0 16px; max-width:60ch;
-    border-top:1px solid var(--rule); font-size:.97rem;
-  }
-  .skills dt + dd{padding-top:3px}
+/* ---------- skills ---------- */
+.skillgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr)); gap:18px}
+.skillcard{background:var(--card); border:1px solid var(--rule); border-radius:6px; padding:20px 20px 16px}
+.skillcard h3{font-size:.82rem; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); margin:0 0 12px}
+.tags{display:flex; flex-wrap:wrap; gap:7px; margin:0; padding:0; list-style:none}
+.tags li{font-size:.86rem; color:var(--ink); background:var(--paper); border:1px solid var(--rule); border-radius:3px; padding:3px 9px}
 
-  /* ---------- work list ---------- */
-  .work{border-top:1px solid var(--rule)}
-  .item{padding:22px 0; border-bottom:1px solid var(--rule)}
-  .item h3{
-    font-size:1.03rem; font-weight:600; margin:0 0 4px;
-    font-family:"IBM Plex Sans", sans-serif;
-  }
-  .item h3 a{border-bottom:1px solid var(--rule)}
-  .item h3 a:hover{border-bottom-color:var(--accent); color:var(--accent)}
-  .item p{margin:0 0 6px; color:var(--muted); font-size:.97rem}
-  .finding{color:var(--ink); font-size:.97rem; margin:0}
-  .finding b{font-weight:600; color:var(--accent)}
+/* ---------- experience ---------- */
+.job{
+  background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--accent);
+  border-radius:6px; padding:22px 24px; margin-bottom:16px;
+}
+.jobtop{display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 18px; align-items:baseline}
+.job h3{font-size:1.06rem; margin:0; font-weight:600}
+.when{font-size:.86rem; color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap}
+.where{color:var(--muted); font-size:.94rem; margin:3px 0 12px}
+.job ul{margin:0; padding-left:19px}
+.job li{margin:0 0 6px; max-width:74ch}
+.job li::marker{color:var(--rule)}
 
-  /* ---------- project figures ---------- */
-  .shot{margin:14px 0 0; max-width:560px}
-  .shot img{
-    width:100%; height:auto; display:block; border-radius:3px;
-    background:#fff; box-shadow:0 0 0 1px var(--rule);
-  }
-  .shot figcaption{font-size:.84rem; color:var(--muted); margin-top:7px}
+/* ---------- projects ---------- */
+.projects{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px}
+.proj{
+  background:var(--card); border:1px solid var(--rule); border-radius:6px;
+  overflow:hidden; display:flex; flex-direction:column; box-shadow:var(--shadow);
+}
+.proj img{width:100%; aspect-ratio:16/9; object-fit:cover; object-position:center; background:#fff; display:block; border-bottom:1px solid var(--rule)}
+.projbody{padding:18px 20px 20px; display:flex; flex-direction:column; flex:1}
+.proj h3{font-size:1.04rem; margin:0 0 8px; font-weight:600}
+.proj p{margin:0 0 10px; font-size:.94rem; color:var(--muted)}
+.result{font-size:.94rem; color:var(--ink); margin:0 0 14px}
+.result b{color:var(--accent); font-weight:600}
+.stack{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 16px; padding:0; list-style:none}
+.stack li{font-size:.78rem; color:var(--muted); border:1px solid var(--rule); border-radius:3px; padding:2px 8px}
+.proj a.repo{
+  margin-top:auto; text-decoration:none; font-size:.92rem; font-weight:500; color:var(--accent);
+  border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent); align-self:flex-start; padding-bottom:1px;
+}
+.proj a.repo:hover{border-bottom-color:var(--accent)}
+.allrepos{margin-top:22px; font-size:.96rem}
+.allrepos a{color:var(--accent)}
 
-  .more{margin-top:26px; font-size:.97rem}
-  .more a{color:var(--accent); border-bottom:1px solid color-mix(in srgb, var(--accent) 35%, transparent)}
-  .more a:hover{border-bottom-color:var(--accent)}
+/* ---------- education ---------- */
+.edu{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px}
+.educard{background:var(--card); border:1px solid var(--rule); border-radius:6px; padding:20px 22px}
+.educard h3{font-size:1.02rem; margin:0 0 4px}
+.educard p{margin:0; color:var(--muted); font-size:.93rem}
 
-  footer{
-    border-top:1px solid var(--rule); margin-top:20px;
-    padding:30px 0 70px; color:var(--muted); font-size:.93rem;
-  }
-  footer a{color:var(--accent); border-bottom:1px solid color-mix(in srgb, var(--accent) 35%, transparent)}
+/* ---------- contact ---------- */
+.contact{background:var(--card); border:1px solid var(--rule); border-radius:6px; padding:34px 30px; margin-bottom:10px}
+.contact p{max-width:60ch; margin:0 0 20px}
 
-  @media (max-width:620px){
-    header{padding:56px 0 40px}
-    .entry{grid-template-columns:1fr; column-gap:0}
-    .years{text-align:left; padding:0 0 6px}
-    .masthead{grid-template-columns:1fr; row-gap:22px}
-    .portrait{width:104px; height:104px}
-    h1{margin-top:0}
-    .spine{border-left:none; padding-left:16px; margin-left:0}
-    .spine::before{left:0; top:9px}
-    .skills{grid-template-columns:1fr; column-gap:0}
-    .skills dd{border-top:none; padding:0 0 18px}
-    .skills dt{padding-top:12px}
-  }
-  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+footer{border-top:1px solid var(--rule); margin-top:60px; padding:26px 0 60px; color:var(--muted); font-size:.9rem}
+
+@media (max-width:760px){
+  .hero .wrap{padding:64px 24px 56px}
+  section{padding:70px 0 6px}
+  .about{grid-template-columns:1fr; gap:22px}
+  .portrait{width:150px; height:150px}
+  .brand{display:none}
+  .nav .wrap{justify-content:flex-start}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
-<div class="band"><div class="wrap">
-
-  <header>
-    <div class="masthead">
-      <img class="portrait" src="profile.jpg" alt="Nallathambi Vethiappan"
-           onerror="this.style.display='none'">
-      <div>
-        <h1>Nallathambi Vethiappan</h1>
-        <p class="lede">Data scientist. Ten years building production systems — mainframes, data pipelines, then machine learning — across automotive and banking, followed by a full-time MSc to go deeper on the modelling.</p>
-        <p class="place">Amsterdam, Netherlands. Open to data science, machine learning and data engineering roles.</p>
-        <nav class="links">
-          <a href="https://github.com/Nalla-V">GitHub</a>
-          <a href="https://www.linkedin.com/in/nvethiappan">LinkedIn</a>
-          <a href="mailto:nvethiappan@gmail.com">nvethiappan@gmail.com</a>
-        </nav>
-      </div>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Nallathambi Vethiappan</a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
     </div>
-  </header>
-</div></div>
+  </div>
+</nav>
 
-<div class="wrap">
-
-  <section>
-    <h2>Skills</h2>
-    <p class="note">Tools I have used in production or in published work.</p>
-    <dl class="skills">
-      <dt>Machine learning</dt>
-      <dd>Python, PyTorch, TensorFlow, scikit-learn, XGBoost, isolation forests, autoencoders, LSTM, ARIMA, Optuna</dd>
-
-      <dt>Language and vision</dt>
-      <dd>Hugging Face Transformers, BERT and RobBERT, vision-language models (Qwen, InternVL, LLaVA, Idefics2), Grounding DINO, LLM prompting and evaluation</dd>
-
-      <dt>Applied work</dt>
-      <dd>Anomaly detection, transaction monitoring, credit risk scoring, time-series forecasting, recommender systems, model explainability with SHAP</dd>
-
-      <dt>Data and cloud</dt>
-      <dd>PySpark, Kafka, SQL, BigQuery, Azure (Container Apps, Service Bus, Cosmos DB), AWS (S3, Lambda, SageMaker), Docker, Git</dd>
-
-      <dt>Delivery</dt>
-      <dd>Power BI, Agile, JIRA, Confluence, stakeholder reporting</dd>
-    </dl>
-  </section>
-
-  <section>
-    <h2>Experience</h2>
-    <p class="note">Client work in automotive and financial services, delivered from India, France and the Netherlands.</p>
-
-    <div class="entry">
-      <div class="years">2021&ndash;2025</div>
-      <div class="spine">
-        <p class="role">Tech Lead — Machine learning and forecasting</p>
-        <p class="org">Tech Mahindra, for Nissan Automotive Europe</p>
-        <ul>
-          <li>Extended the parts demand forecast horizon from six months to twelve, to absorb pandemic supply disruption.</li>
-          <li>Built hybrid forecasting models combining gradient boosting, ARIMA and LSTMs, tuned with Optuna.</li>
-          <li>Engineered features from shipment schedules, supplier lead times and production constraints.</li>
-          <li>Wired model output back into legacy mainframe systems so forecasting and reporting ran end to end.</li>
-        </ul>
-      </div>
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow"><i class="dot"></i>Open to roles — Amsterdam, Netherlands</span>
+    <h1>Nallathambi Vethiappan</h1>
+    <p class="tagline">Data scientist with ten years of production engineering behind the models — mainframes, data pipelines, then machine learning, across automotive and banking.</p>
+    <p class="subline">Machine Learning &nbsp;|&nbsp; NLP &amp; Vision-Language &nbsp;|&nbsp; Data Engineering &amp; Cloud</p>
+    <div class="cta">
+      <a class="btn solid" href="#projects">View projects</a>
+      <a class="btn ghost" href="https://github.com/Nalla-V">GitHub</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/nvethiappan">LinkedIn</a>
     </div>
+  </div>
+</header>
 
-    <div class="entry">
-      <div class="years">2019&ndash;2021</div>
-      <div class="spine">
-        <p class="role">Senior Associate — Financial crime and transaction monitoring</p>
-        <p class="org">Cognizant, for KBC Bank</p>
-        <ul>
-          <li>Built anomaly detection for transaction monitoring on high-volume credit card data, cutting false positives by 30%.</li>
-          <li>Added streaming for real-time transaction scoring and alert generation in a live monitoring pipeline.</li>
-          <li>Built corporate loan risk-scoring models from financial KPIs to support lending decisions.</li>
-          <li>Applied SHAP explainability so compliance and audit teams could interrogate model decisions.</li>
-        </ul>
-      </div>
+<main class="wrap">
+
+<section id="about">
+  <div class="shead"><span class="snum">01 — About</span><h2>About</h2></div>
+  <p class="sub">Where I started, and why I went back to study.</p>
+  <div class="about">
+    <img class="portrait" src="profile.jpg" alt="Nallathambi Vethiappan" onerror="this.style.display='none'">
+    <div>
+      <p>I spent a decade building systems that had to keep running — finance and logistics workflows on mainframes at Nissan, then data pipelines and predictive models, then machine learning for demand forecasting and financial crime detection at KBC Bank. That work ran from Chennai, Paris and Amsterdam.</p>
+      <p>I came back to full-time study to go deeper on the modelling side, and completed an MSc in Computer Science at Leiden University. My thesis is on visual entailment: decomposing a claim about an image into atomic facts so a frozen vision-language model can be checked one fact at a time, rather than trusted for a single verdict.</p>
+      <p>What carries across from the first decade is a habit of reporting what actually happened. Every repository on my GitHub leads with the result — including the experiments that contradicted the method — and ships the full report alongside the code.</p>
     </div>
+  </div>
+</section>
 
-    <div class="entry">
-      <div class="years">2017&ndash;2018</div>
-      <div class="spine">
-        <p class="role">Data Engineer — Pipelines and predictive modelling</p>
-        <p class="org">Tech Mahindra, for Nissan Automotive Europe. Paris</p>
-        <ul>
-          <li>Built regression models for dynamic WLTP emissions and weight calculation across 500+ vehicle variants.</li>
-          <li>Automated certificate generation, linking mainframe data with NLP modules covering 27 languages.</li>
-          <li>Defined the migration roadmap toward predictive modelling and modern APIs without destabilising the mainframe.</li>
-        </ul>
-      </div>
+<section id="skills">
+  <div class="shead"><span class="snum">02 — Skills</span><h2>Skills</h2></div>
+  <p class="sub">Tools used in production or in published work.</p>
+  <div class="skillgrid">
+    <div class="skillcard">
+      <h3>Machine learning</h3>
+      <ul class="tags">
+        <li>Python</li><li>PyTorch</li><li>TensorFlow</li><li>scikit-learn</li>
+        <li>XGBoost</li><li>Isolation Forest</li><li>Autoencoders</li><li>LSTM</li><li>ARIMA</li><li>Optuna</li>
+      </ul>
     </div>
-
-    <div class="entry">
-      <div class="years">2015&ndash;2017</div>
-      <div class="spine">
-        <p class="role">Technical Consultant — Systems integration</p>
-        <p class="org">Tech Mahindra, for Nissan Motor Corporation. Amsterdam</p>
-        <ul>
-          <li>Streamlined finance mainframe workflows for orders, invoicing and billing, integrated with SAP.</li>
-          <li>Ran deployments and cross-application testing across logistics and manufacturing systems.</li>
-        </ul>
-      </div>
+    <div class="skillcard">
+      <h3>Language &amp; vision</h3>
+      <ul class="tags">
+        <li>Hugging Face</li><li>BERT</li><li>RobBERT</li><li>Qwen</li><li>InternVL</li>
+        <li>LLaVA</li><li>Grounding DINO</li><li>LLM evaluation</li>
+      </ul>
     </div>
-  </section>
-
-  <section>
-    <h2>Education</h2>
-    <div class="entry">
-      <div class="years">2025&ndash;2026</div>
-      <div class="spine">
-        <p class="role">MSc Computer Science, Data Science and AI</p>
-        <p class="org">Leiden University (LIACS)</p>
-      </div>
+    <div class="skillcard">
+      <h3>Applied work</h3>
+      <ul class="tags">
+        <li>Anomaly detection</li><li>Transaction monitoring</li><li>Credit risk scoring</li>
+        <li>Forecasting</li><li>Recommenders</li><li>SHAP</li>
+      </ul>
     </div>
-    <div class="entry">
-      <div class="years">2006&ndash;2010</div>
-      <div class="spine">
-        <p class="role">BTech Information Technology</p>
-        <p class="org">Anna University, Chennai</p>
-      </div>
+    <div class="skillcard">
+      <h3>Data &amp; cloud</h3>
+      <ul class="tags">
+        <li>PySpark</li><li>Kafka</li><li>SQL</li><li>BigQuery</li>
+        <li>Azure</li><li>AWS</li><li>Docker</li><li>Git</li>
+      </ul>
     </div>
-  </section>
+    <div class="skillcard">
+      <h3>Delivery</h3>
+      <ul class="tags">
+        <li>Power BI</li><li>Agile</li><li>JIRA</li><li>Confluence</li><li>Stakeholder reporting</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  <section>
-    <h2>Selected work</h2>
-    <p class="note">Each repository leads with what the experiments showed, including the results that contradicted the method, and ships the full report with the code.</p>
+<section id="experience">
+  <div class="shead"><span class="snum">03 — Experience</span><h2>Experience</h2></div>
+  <p class="sub">Client work in automotive and financial services, delivered from India, France and the Netherlands.</p>
 
-    <div class="work">
-      <div class="item">
-        <h3><a href="https://github.com/Nalla-V/atomic-visual-entailment">Atomic Visual Entailment</a></h3>
-        <p>Master's thesis. Decomposing hypotheses into atomic facts so frozen vision-language models can be checked claim by claim, with no fine-tuning and no API cost.</p>
-        <p class="finding">Zero-shot accuracy on SNLI-VE improved by <b>12&ndash;25 percentage points</b> over prior zero-shot and hybrid methods.</p>
-            <figure class="shot"><img src="img/ave.jpg" alt="Zero-shot accuracy across seven vision-language models" loading="lazy"><figcaption>Zero-shot accuracy across seven vision-language models</figcaption></figure>
-</div>
+  <div class="job">
+    <div class="jobtop">
+      <h3>Tech Lead — Machine Learning &amp; Forecasting</h3>
+      <span class="when">Feb 2021 – Jan 2025</span>
+    </div>
+    <p class="where">Tech Mahindra, for Nissan Automotive Europe · Chennai / Paris</p>
+    <ul>
+      <li>Extended the parts demand forecast horizon from six months to twelve, to absorb pandemic supply disruption.</li>
+      <li>Built hybrid forecasting models combining XGBoost, ARIMA and LSTMs, tuned with Optuna.</li>
+      <li>Engineered features from shipment schedules, supplier lead times and production constraints.</li>
+      <li>Integrated model output back into legacy mainframe systems so forecasting and reporting ran end to end.</li>
+      <li>Delivered Power BI dashboards for logistics planning and inventory optimisation.</li>
+    </ul>
+  </div>
 
-      <div class="item">
-        <h3><a href="https://github.com/Nalla-V/tell-the-time-cnn">Reading analog clocks with CNNs</a></h3>
-        <p>Five ways of representing clock time for the same convolutional network on the same 18,000 images.</p>
-        <p class="finding">Changing only the output representation moved error from <b>182.93 minutes — chance — to 8.52</b>. The most precise-looking formulation was the worst.</p>
-            <figure class="shot"><img src="img/clock.jpg" alt="Training and validation curves for the sin/cos model" loading="lazy"><figcaption>Training and validation curves for the sin/cos model</figcaption></figure>
-</div>
+  <div class="job">
+    <div class="jobtop">
+      <h3>Senior Associate — Financial Crime &amp; Transaction Monitoring</h3>
+      <span class="when">Jan 2019 – Jan 2021</span>
+    </div>
+    <p class="where">Cognizant, for KBC Bank · Chennai / Belgium</p>
+    <ul>
+      <li>Built anomaly detection for transaction monitoring on high-volume credit card data, cutting false positives by 30%.</li>
+      <li>Added Kafka streaming for real-time transaction scoring and alert generation in a live monitoring pipeline.</li>
+      <li>Built corporate loan risk-scoring models from financial KPIs to support automated lending decisions.</li>
+      <li>Applied SHAP explainability so compliance and audit teams could interrogate model decisions.</li>
+    </ul>
+  </div>
 
-      <div class="item">
-        <h3><a href="https://github.com/Nalla-V/ppo-cartpole">Reinforcement learning on CartPole</a></h3>
-        <p>Three studies covering DQN variants, policy gradient methods and PPO with GAE, implemented from scratch.</p>
-        <p class="finding">PPO's advantage turned out to be <b>variance rather than ceiling</b> — A2C reaches the same peak and cannot hold it.</p>
-            <figure class="shot"><img src="img/rl.jpg" alt="PPO, A2C and DQN mean reward over one million steps" loading="lazy"><figcaption>PPO, A2C and DQN mean reward over one million steps</figcaption></figure>
-</div>
+  <div class="job">
+    <div class="jobtop">
+      <h3>Data Engineer — Pipelines &amp; Predictive Modelling</h3>
+      <span class="when">2017 – 2018</span>
+    </div>
+    <p class="where">Tech Mahindra, for Nissan Automotive Europe · Paris</p>
+    <ul>
+      <li>Built regression models for dynamic WLTP emissions and weight calculation across 500+ vehicle variants.</li>
+      <li>Automated certificate generation, linking mainframe data with NLP modules covering 27 languages.</li>
+      <li>Defined the migration roadmap toward predictive modelling and modern APIs without destabilising the mainframe.</li>
+    </ul>
+  </div>
 
-      <div class="item">
-        <h3><a href="https://github.com/Nalla-V/azure-video-watermarking">Distributed video processing on Azure</a></h3>
+  <div class="job">
+    <div class="jobtop">
+      <h3>Technical Consultant — Systems Integration</h3>
+      <span class="when">2015 – 2017</span>
+    </div>
+    <p class="where">Tech Mahindra, for Nissan Motor Corporation · Amsterdam</p>
+    <ul>
+      <li>Streamlined finance mainframe workflows for orders, invoicing and billing, integrated with SAP.</li>
+      <li>Ran deployments and cross-application testing across logistics and manufacturing systems.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="shead"><span class="snum">04 — Projects</span><h2>Projects</h2></div>
+  <p class="sub">Each repository leads with the result — including the experiments that went against the method — and ships the full report with the code.</p>
+
+  <div class="projects">
+
+    <article class="proj">
+      <img src="img/ave.jpg" alt="Zero-shot accuracy across seven vision-language models" loading="lazy">
+      <div class="projbody">
+        <h3>Atomic Visual Entailment</h3>
+        <p>Master's thesis. Decomposing hypotheses into atomic facts so frozen vision-language models can be checked claim by claim — no fine-tuning, no API cost.</p>
+        <p class="result">Zero-shot accuracy on SNLI-VE improved by <b>12–25 percentage points</b> over prior zero-shot and hybrid methods.</p>
+        <ul class="stack"><li>PyTorch</li><li>Qwen</li><li>InternVL</li><li>XGBoost</li><li>Grounding DINO</li></ul>
+        <a class="repo" href="https://github.com/Nalla-V/atomic-visual-entailment">View repository</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img src="img/clock.jpg" alt="Training and validation curves for the sin/cos model" loading="lazy">
+      <div class="projbody">
+        <h3>Reading Analog Clocks with CNNs</h3>
+        <p>Five ways of representing clock time for the same convolutional network, on the same 18,000 images.</p>
+        <p class="result">Changing only the output representation moved error from <b>182.93 minutes — chance — to 8.52</b>. The most precise-looking formulation was the worst.</p>
+        <ul class="stack"><li>TensorFlow</li><li>Keras</li><li>CNN</li><li>Cyclical encoding</li></ul>
+        <a class="repo" href="https://github.com/Nalla-V/tell-the-time-cnn">View repository</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img src="img/rl.jpg" alt="PPO, A2C and DQN mean reward over one million steps" loading="lazy">
+      <div class="projbody">
+        <h3>Reinforcement Learning on CartPole</h3>
+        <p>Three studies covering DQN variants, policy gradient methods and PPO with GAE, all implemented from scratch.</p>
+        <p class="result">PPO's advantage turned out to be <b>variance rather than ceiling</b> — A2C reaches the same peak and cannot hold it.</p>
+        <ul class="stack"><li>PyTorch</li><li>Gymnasium</li><li>PPO</li><li>DQN</li><li>A2C</li></ul>
+        <a class="repo" href="https://github.com/Nalla-V/ppo-cartpole">View repository</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img src="img/azure.jpg" alt="Latency and throughput, one container against two" loading="lazy">
+      <div class="projbody">
+        <h3>Distributed Video Processing on Azure</h3>
         <p>Five queue-coordinated microservices splitting, watermarking, thumbnailing and reassembling video in parallel.</p>
-        <p class="finding">A fire-and-forget messaging pattern with a central aggregator, avoiding lock contention across services.</p>
-            <figure class="shot"><img src="img/azure.jpg" alt="Latency and throughput, one container against two" loading="lazy"><figcaption>Latency and throughput, one container against two</figcaption></figure>
-</div>
-
-      <div class="item">
-        <h3><a href="https://github.com/Nalla-V/amazon-product-recommender">Hybrid recommender under extreme sparsity</a></h3>
-        <p>Item-kNN, sequential co-occurrence, TF-IDF and popularity blended for Amazon beauty products.</p>
-        <p class="finding">Built for a dataset where <b>93% of users have a single interaction</b>, which defeats collaborative filtering alone.</p>
-            <figure class="shot"><img src="img/rec.jpg" alt="Recall@10 across blend configurations" loading="lazy"><figcaption>Recall@10 across blend configurations</figcaption></figure>
-</div>
-
-      <div class="item">
-        <h3><a href="https://github.com/Nalla-V/landmark-shortest-path-estimation">Landmark shortest-path estimation</a></h3>
-        <p>Approximate shortest-path distances in large graphs, comparing landmark selection strategies.</p>
-        <p class="finding">Which nodes you pick as landmarks matters more than how many you pick.</p>
+        <p class="result">A fire-and-forget messaging pattern with a central aggregator, avoiding lock contention across services.</p>
+        <ul class="stack"><li>Azure Container Apps</li><li>Service Bus</li><li>Cosmos DB</li><li>Docker</li></ul>
+        <a class="repo" href="https://github.com/Nalla-V/azure-video-watermarking">View repository</a>
       </div>
+    </article>
+
+    <article class="proj">
+      <img src="img/rec.jpg" alt="Recall@10 across blend configurations" loading="lazy">
+      <div class="projbody">
+        <h3>Hybrid Recommender Under Sparsity</h3>
+        <p>Item-kNN, sequential co-occurrence, TF-IDF and popularity blended for Amazon beauty products.</p>
+        <p class="result">Built for a dataset where <b>93% of users have a single interaction</b>, which defeats collaborative filtering alone.</p>
+        <ul class="stack"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>TF-IDF</li></ul>
+        <a class="repo" href="https://github.com/Nalla-V/amazon-product-recommender">View repository</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img src="img/graph.jpg" alt="Approximation error by landmark selection strategy" loading="lazy">
+      <div class="projbody">
+        <h3>Landmark Shortest-Path Estimation</h3>
+        <p>Approximate shortest-path distances in large graphs, comparing landmark selection strategies.</p>
+        <p class="result">Which nodes you pick as landmarks matters <b>far more than how many</b> you pick.</p>
+        <ul class="stack"><li>Python</li><li>NetworkX</li><li>Graph algorithms</li></ul>
+        <a class="repo" href="https://github.com/Nalla-V/landmark-shortest-path-estimation">View repository</a>
+      </div>
+    </article>
+
+  </div>
+  <p class="allrepos"><a href="https://github.com/Nalla-V">All eighteen repositories, grouped by area, on GitHub</a></p>
+</section>
+
+<section id="education">
+  <div class="shead"><span class="snum">05 — Education</span><h2>Education</h2></div>
+  <p class="sub"></p>
+  <div class="edu">
+    <div class="educard">
+      <h3>MSc Computer Science — Data Science &amp; AI</h3>
+      <p>Leiden University (LIACS) · 2025 – 2026</p>
     </div>
+    <div class="educard">
+      <h3>BTech Information Technology</h3>
+      <p>Anna University, Chennai · 2006 – 2010</p>
+    </div>
+  </div>
+</section>
 
-    <p class="more"><a href="https://github.com/Nalla-V">All eighteen repositories, grouped by area, on GitHub</a></p>
-  </section>
+<section id="contact">
+  <div class="shead"><span class="snum">06 — Contact</span><h2>Get in touch</h2></div>
+  <p class="sub"></p>
+  <div class="contact">
+    <p>I'm open to Data Scientist, Machine Learning Engineer, AI Engineer and Data Engineer roles in the Netherlands. If you think I'd fit your team, I'd be glad to hear from you.</p>
+    <div class="cta">
+      <a class="btn solid" href="mailto:nvethiappan@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/nvethiappan">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/Nalla-V">GitHub</a>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <p>Built as a single HTML file. <a href="https://github.com/Nalla-V">GitHub</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/nvethiappan">LinkedIn</a></p>
-  </footer>
+</main>
 
-      <figure class="shot"><img src="img/graph.jpg" alt="Approximation error by landmark selection strategy" loading="lazy"><figcaption>Approximation error by landmark selection strategy</figcaption></figure>
-</div>
+<footer>
+  <div class="wrap">Nallathambi Vethiappan · Amsterdam, Netherlands</div>
+</footer>
+
 </body>
 </html>
