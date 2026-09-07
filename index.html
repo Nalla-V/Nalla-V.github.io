@@ -293,17 +293,17 @@ details.more[open] summary::after{transform:rotate(180deg)}
 .slide{flex:0 0 100%; scroll-snap-align:center; min-width:0}
 .pcard{
   background:var(--card); border:1px solid var(--rule); border-radius:16px;
-  padding:38px 42px; display:grid; grid-template-columns:118px minmax(0,1fr);
-  gap:26px; min-height:318px; align-items:start;
+  padding:28px 34px; display:grid; grid-template-columns:92px minmax(0,1fr);
+  gap:20px; min-height:238px; align-items:start;
 }
 .pnum{
-  font-size:3.6rem; font-weight:700; line-height:1; letter-spacing:-.04em;
-  color:rgba(255,255,255,.07);
+  font-size:2.8rem; font-weight:700; line-height:1; letter-spacing:-.04em;
+  color:rgba(255,255,255,.08);
 }
-.pkicker{font-size:.76rem; letter-spacing:.11em; text-transform:uppercase; color:var(--lime); margin:0 0 12px}
-.pcard h3{font-size:1.55rem; font-weight:600; margin:0 0 14px; line-height:1.22; letter-spacing:-.015em}
-.pcard p{margin:0 0 20px; color:#c2cedb; font-size:1rem; max-width:62ch}
-.pstack{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 26px; padding:0; list-style:none}
+.pkicker{font-size:.74rem; letter-spacing:.11em; text-transform:uppercase; color:var(--lime); margin:0 0 9px}
+.pcard h3{font-size:1.34rem; font-weight:600; margin:0 0 10px; line-height:1.25; letter-spacing:-.015em}
+.pcard p{margin:0 0 16px; color:#c2cedb; font-size:.96rem; max-width:72ch}
+.pstack{display:flex; flex-wrap:wrap; gap:7px; margin:0 0 20px; padding:0; list-style:none}
 .pstack li{
   font-size:.8rem; color:var(--muted); background:rgba(255,255,255,.04);
   border:1px solid var(--rule); border-radius:100px; padding:4px 12px;
@@ -311,7 +311,7 @@ details.more[open] summary::after{transform:rotate(180deg)}
 .pacts{display:flex; gap:11px; flex-wrap:wrap}
 .pbtn{
   display:inline-flex; align-items:center; gap:8px; text-decoration:none;
-  font-size:.91rem; font-weight:600; padding:10px 18px; border-radius:9px;
+  font-size:.88rem; font-weight:600; padding:9px 16px; border-radius:9px;
   border:1px solid var(--rule); color:var(--ink); background:rgba(255,255,255,.03);
   transition:border-color .18s, color .18s, transform .18s;
 }
@@ -320,15 +320,16 @@ details.more[open] summary::after{transform:rotate(180deg)}
 
 .arrow{
   position:absolute; top:50%; transform:translateY(-50%); z-index:5;
-  width:46px; height:46px; border-radius:50%; cursor:pointer;
-  background:rgba(13,21,29,.94); border:1px solid var(--rule); color:var(--lime);
-  font-size:1.35rem; line-height:1; display:grid; place-items:center;
-  transition:background .18s, border-color .18s, color .18s;
+  width:44px; height:44px; border-radius:50%; cursor:pointer;
+  background:rgba(34,211,238,.14); border:1.5px solid rgba(34,211,238,.55);
+  color:var(--lime); font-size:1.4rem; line-height:1; display:grid; place-items:center;
+  box-shadow:0 0 0 6px rgba(7,12,17,.9);
+  transition:background .18s, border-color .18s, color .18s, transform .18s;
 }
 .arrow:hover{background:var(--lime); color:#052229; border-color:var(--lime)}
-.arrow.prev{left:-23px} .arrow.next{right:-23px}
-.arrow[disabled]{opacity:.28; cursor:default}
-.arrow[disabled]:hover{background:rgba(13,21,29,.94); color:var(--lime); border-color:var(--rule)}
+.arrow.prev{left:-21px} .arrow.next{right:-21px}
+.arrow[disabled]{opacity:.22; cursor:default}
+.arrow[disabled]:hover{background:rgba(34,211,238,.14); color:var(--lime); border-color:rgba(34,211,238,.55)}
 
 .dots{display:flex; justify-content:center; gap:10px; margin-top:26px}
 .dots button{
