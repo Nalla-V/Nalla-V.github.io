@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2307211d%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20text-anchor%3D%22middle%22%20font-family%3D%22Helvetica%2CArial%2Csans-serif%22%20font-size%3D%2229%22%20font-weight%3D%22700%22%20fill%3D%22%235eead4%22%3ENV%3C%2Ftext%3E%3C%2Fsvg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23070c11%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20text-anchor%3D%22middle%22%20font-family%3D%22Helvetica%2CArial%2Csans-serif%22%20font-size%3D%2229%22%20font-weight%3D%22700%22%20fill%3D%22%2322d3ee%22%3ENV%3C%2Ftext%3E%3C%2Fsvg%3E">
 <title>Nallathambi Vethiappan — Data Scientist</title>
 <meta name="description" content="Data scientist in Amsterdam. Ten years in industry, six of them in machine learning across banking and automotive, plus an MSc in Computer Science at Leiden University.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,15 +11,15 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#071b18;
-  --card:#0d2622;
-  --ink:#e9efec;
-  --muted:#93a8a3;
-  --rule:#1b322c;
-  --green:#0c2a25;
-  --green-2:#137a63;
-  --deep:#07211d;
-  --lime:#5eead4;
+  --paper:#070c11;
+  --card:#0d151d;
+  --ink:#e6edf3;
+  --muted:#8a9aa8;
+  --rule:#1b2733;
+  --green:#0a1218;
+  --green-2:#22d3ee;
+  --deep:#060a0e;
+  --lime:#22d3ee;
   --shadow:0 1px 2px rgba(0,0,0,.3), 0 18px 40px -24px rgba(0,0,0,.8);
 }
 *{box-sizing:border-box}
@@ -40,7 +40,7 @@ a:focus-visible{outline:2px solid var(--green-2); outline-offset:3px; border-rad
   transition:background .25s, border-color .25s, backdrop-filter .25s;
 }
 .nav.stuck{
-  background:rgba(7,27,24,.86); backdrop-filter:saturate(180%) blur(12px);
+  background:rgba(7,12,17,.88); backdrop-filter:saturate(180%) blur(12px);
   border-bottom-color:var(--rule);
 }
 .nav .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px; height:66px}
@@ -51,14 +51,14 @@ a:focus-visible{outline:2px solid var(--green-2); outline-offset:3px; border-rad
 .nav.stuck .brand{color:var(--ink)}
 .brand .br{font-weight:600}
 .brand .br.l{color:var(--lime)}
-.brand .br.r{color:#e2c15c}
+.brand .br.r{color:#eab308}
 .brand .mono{
   padding:0 7px;
-  background:linear-gradient(100deg,#5eead4 0%,#7fd48f 50%,#e2c15c 100%);
+  background:linear-gradient(100deg,#22d3ee 0%,#6ee7a8 50%,#eab308 100%);
   -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
 }
 .nav.stuck .brand .br.l{color:var(--lime)}
-.nav.stuck .brand .br.r{color:#e2c15c}
+.nav.stuck .brand .br.r{color:#eab308}
 .navlinks{display:flex; gap:4px; overflow-x:auto; scrollbar-width:none}
 .navlinks::-webkit-scrollbar{display:none}
 .navlinks a{
@@ -69,23 +69,23 @@ a:focus-visible{outline:2px solid var(--green-2); outline-offset:3px; border-rad
 .navlinks a.on{color:var(--lime); font-weight:500}
 .nav.stuck .navlinks a{color:var(--muted)}
 .nav.stuck .navlinks a:hover{color:#fff; background:rgba(255,255,255,.08)}
-.nav.stuck .navlinks a.on{color:var(--lime); background:rgba(94,234,212,.1)}
+.nav.stuck .navlinks a.on{color:var(--lime); background:rgba(34,211,238,.12)}
 
 /* ---------------- hero ---------------- */
 .hero{
   position:relative; color:#fff; overflow:hidden;
   background:
-    radial-gradient(1100px 620px at 78% 8%,  rgba(45,212,191,.20), transparent 62%),
-    radial-gradient(760px 520px at 12% 88%, rgba(16,132,110,.24), transparent 66%),
-    linear-gradient(165deg, #0a2521 0%, var(--deep) 46%, #061a17 100%);
+    radial-gradient(1150px 640px at 76% 6%,  rgba(34,211,238,.16), transparent 62%),
+    radial-gradient(820px 560px at 10% 92%, rgba(13,148,136,.20), transparent 66%),
+    linear-gradient(165deg, #0b1a1f 0%, #081218 48%, var(--deep) 100%);
 }
 .hero::before{
   content:""; position:absolute; inset:0; pointer-events:none; z-index:1;
-  background-image:radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px);
-  background-size:26px 26px;
-  -webkit-mask-image:radial-gradient(900px 560px at 70% 30%, #000 0%, transparent 72%);
-  mask-image:radial-gradient(900px 560px at 70% 30%, #000 0%, transparent 72%);
-  opacity:.5;
+  background-image:radial-gradient(rgba(120,210,230,.34) 1.1px, transparent 1.1px);
+  background-size:23px 23px;
+  -webkit-mask-image:radial-gradient(1200px 760px at 62% 34%, #000 0%, transparent 78%);
+  mask-image:radial-gradient(1200px 760px at 62% 34%, #000 0%, transparent 78%);
+  opacity:.9;
 }
 .hero::after{
   content:""; position:absolute; inset:auto 0 -1px 0; height:120px; pointer-events:none; z-index:1;
@@ -104,7 +104,7 @@ h1{
 }
 h1 em{
   font-style:normal; color:var(--lime);
-  background:linear-gradient(100deg,#5eead4 0%,#7fd48f 45%,#e2c15c 100%);
+  background:linear-gradient(100deg,#22d3ee 0%,#6ee7a8 48%,#eab308 100%);
   -webkit-background-clip:text; background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -125,16 +125,16 @@ h1 em{
   background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16);
   transition:background .2s, border-color .2s, box-shadow .2s;
 }
-.social a:hover{background:var(--lime); border-color:var(--lime); box-shadow:0 0 22px -4px rgba(94,234,212,.55)}
+.social a:hover{background:var(--lime); border-color:var(--lime); box-shadow:0 0 24px -4px rgba(34,211,238,.55)}
 .social svg{width:19px; height:19px; fill:#fff; transition:fill .2s}
-.social a:hover svg{fill:#062a23}
+.social a:hover svg{fill:#062026}
 .cta{display:flex; flex-wrap:wrap; gap:13px}
 .btn{
   display:inline-flex; align-items:center; gap:9px; text-decoration:none;
   font-size:.97rem; font-weight:600; padding:13px 24px; border-radius:9px;
   transition:transform .15s, box-shadow .15s, background .15s;
 }
-.btn.solid{background:var(--lime); color:#062a23}
+.btn.solid{background:var(--lime); color:#052229}
 .btn.solid:hover{transform:translateY(-2px); box-shadow:0 10px 24px -12px rgba(0,0,0,.5)}
 .btn.ghost{border:1px solid rgba(255,255,255,.35); color:#fff}
 .btn.ghost:hover{background:rgba(255,255,255,.12); transform:translateY(-2px)}
@@ -182,7 +182,7 @@ main{padding-bottom:40px}
 }
 .sechead h2 em{
   font-style:normal;
-  background:linear-gradient(100deg,#5eead4 0%,#7fd48f 48%,#e2c15c 100%);
+  background:linear-gradient(100deg,#22d3ee 0%,#6ee7a8 48%,#eab308 100%);
   -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
 }
 .sechead p{color:var(--muted); margin:0; font-size:1.02rem}
@@ -196,7 +196,7 @@ main{padding-bottom:40px}
 .bgcard h3{
   color:var(--lime); font-size:1.22rem; margin:0 0 16px; font-weight:600;
 }
-.bgcard p{margin:0 0 16px; color:#c3d1cc}
+.bgcard p{margin:0 0 16px; color:#c2cedb}
 .bgcard p:last-child{margin-bottom:0}
 .bgcard b{color:#fff; font-weight:600}
 
@@ -205,10 +205,10 @@ main{padding-bottom:40px}
   background:var(--card); border:1px solid var(--rule); border-radius:14px;
   padding:24px 22px; transition:transform .2s, box-shadow .2s, border-color .2s;
 }
-.tile:hover{transform:translateY(-4px); border-color:#2c5a4d; box-shadow:0 18px 38px -22px rgba(0,0,0,.85)}
+.tile:hover{transform:translateY(-4px); border-color:#2a4a5c; box-shadow:0 18px 38px -22px rgba(0,0,0,.85)}
 .ticon{
   width:46px; height:46px; border-radius:12px; display:grid; place-items:center;
-  background:rgba(94,234,212,.1); margin-bottom:15px;
+  background:rgba(34,211,238,.11); margin-bottom:15px;
 }
 .ticon svg{width:22px; height:22px; stroke:var(--lime); fill:none; stroke-width:1.9;
   stroke-linecap:round; stroke-linejoin:round}
@@ -303,7 +303,7 @@ main{padding-bottom:40px}
       <p>I started as a <b>software engineer</b>, working onsite for Nissan in <b>Amsterdam</b> and then <b>Paris</b> on finance, logistics and vehicle registration systems. The turn toward machine learning happened there. A lot of that work was manual calculation and hand-maintained rules, and I replaced part of it with regression models that did the job faster and more consistently. The modelling turned out to be more interesting than the plumbing.</p>
       <p><b>Six of my ten years have been in machine learning.</b> Credit risk scoring and transaction monitoring for financial crime at <b>KBC Bank</b>, then leading demand forecasting for <b>Nissan</b>, where model output had to feed systems that could not be taken offline.</p>
       <p>I did an <b>MSc in Computer Science at Leiden University</b> to deepen the theory behind work I had been doing in practice, and to keep pace with a field that moves quickly.</p>
-      <p>Outside work I read papers, play sport, and keep a few side projects running. Most of what I know I learned by building something and finding out where it broke.</p>
+      <p>Outside work I read papers, play sport, and keep a few side projects running. I learn best by building things rather than reading about them.</p>
     </div>
 
     <div class="tiles">
