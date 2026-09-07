@@ -5,22 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2307211d%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20text-anchor%3D%22middle%22%20font-family%3D%22Helvetica%2CArial%2Csans-serif%22%20font-size%3D%2229%22%20font-weight%3D%22700%22%20fill%3D%22%235eead4%22%3ENV%3C%2Ftext%3E%3C%2Fsvg%3E">
 <title>Nallathambi Vethiappan — Data Scientist</title>
-<meta name="description" content="Data scientist in Amsterdam. Ten years across mainframe systems, data engineering and machine learning in automotive and banking, followed by an MSc in Computer Science at Leiden University.">
+<meta name="description" content="Data scientist in Amsterdam. Ten years in industry, six of them in machine learning across banking and automotive, plus an MSc in Computer Science at Leiden University.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#f4f6f5;
-  --card:#ffffff;
-  --ink:#14211f;
-  --muted:#5b6b68;
-  --rule:#dde3e0;
+  --paper:#071b18;
+  --card:#0d2622;
+  --ink:#e9efec;
+  --muted:#93a8a3;
+  --rule:#1b322c;
   --green:#0c2a25;
   --green-2:#137a63;
   --deep:#07211d;
   --lime:#5eead4;
-  --shadow:0 1px 2px rgba(20,33,31,.06), 0 18px 40px -24px rgba(20,33,31,.4);
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 18px 40px -24px rgba(0,0,0,.8);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth; scroll-padding-top:70px; -webkit-text-size-adjust:100%}
@@ -40,7 +40,7 @@ a:focus-visible{outline:2px solid var(--green-2); outline-offset:3px; border-rad
   transition:background .25s, border-color .25s, backdrop-filter .25s;
 }
 .nav.stuck{
-  background:rgba(255,255,255,.92); backdrop-filter:saturate(180%) blur(12px);
+  background:rgba(7,27,24,.86); backdrop-filter:saturate(180%) blur(12px);
   border-bottom-color:var(--rule);
 }
 .nav .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px; height:66px}
@@ -57,12 +57,8 @@ a:focus-visible{outline:2px solid var(--green-2); outline-offset:3px; border-rad
   background:linear-gradient(100deg,#5eead4 0%,#7fd48f 50%,#e2c15c 100%);
   -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
 }
-.nav.stuck .brand .br.l{color:var(--green-2)}
-.nav.stuck .brand .br.r{color:#b08d1e}
-.nav.stuck .brand .mono{
-  background:linear-gradient(100deg,#137a63 0%,#3f8f5a 50%,#b08d1e 100%);
-  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
-}
+.nav.stuck .brand .br.l{color:var(--lime)}
+.nav.stuck .brand .br.r{color:#e2c15c}
 .navlinks{display:flex; gap:4px; overflow-x:auto; scrollbar-width:none}
 .navlinks::-webkit-scrollbar{display:none}
 .navlinks a{
@@ -72,8 +68,8 @@ a:focus-visible{outline:2px solid var(--green-2); outline-offset:3px; border-rad
 .navlinks a:hover{color:#fff; background:rgba(255,255,255,.1)}
 .navlinks a.on{color:var(--lime); font-weight:500}
 .nav.stuck .navlinks a{color:var(--muted)}
-.nav.stuck .navlinks a:hover{color:var(--ink); background:var(--paper)}
-.nav.stuck .navlinks a.on{color:var(--green-2); background:#e7f2ee}
+.nav.stuck .navlinks a:hover{color:#fff; background:rgba(255,255,255,.08)}
+.nav.stuck .navlinks a.on{color:var(--lime); background:rgba(94,234,212,.1)}
 
 /* ---------------- hero ---------------- */
 .hero{
@@ -168,8 +164,8 @@ h1 em{
 @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(74,222,128,0)} 100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
 
 .scrollcue{
-  position:relative; z-index:2; display:block; width:44px; height:44px; margin:0 auto 34px;
-  border-radius:50%; border:1px solid rgba(255,255,255,.25); color:rgba(255,255,255,.75);
+  position:relative; z-index:2; display:block; width:42px; height:42px; margin:-14px auto 62px;
+  border-radius:50%; border:1px solid rgba(255,255,255,.22); color:rgba(255,255,255,.7);
   text-align:center; line-height:42px; font-size:1.15rem; text-decoration:none;
   animation:float 2.4s ease-in-out infinite;
 }
@@ -186,7 +182,7 @@ main{padding-bottom:40px}
 }
 .sechead h2 em{
   font-style:normal;
-  background:linear-gradient(100deg,#137a63 0%,#3f8f5a 48%,#b08d1e 100%);
+  background:linear-gradient(100deg,#5eead4 0%,#7fd48f 48%,#e2c15c 100%);
   -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
 }
 .sechead p{color:var(--muted); margin:0; font-size:1.02rem}
@@ -198,23 +194,23 @@ main{padding-bottom:40px}
   padding:30px 32px; position:sticky; top:92px;
 }
 .bgcard h3{
-  color:var(--green-2); font-size:1.22rem; margin:0 0 16px; font-weight:600;
+  color:var(--lime); font-size:1.22rem; margin:0 0 16px; font-weight:600;
 }
-.bgcard p{margin:0 0 16px; color:#33403d}
+.bgcard p{margin:0 0 16px; color:#c3d1cc}
 .bgcard p:last-child{margin-bottom:0}
-.bgcard b{color:var(--ink); font-weight:600}
+.bgcard b{color:#fff; font-weight:600}
 
 .tiles{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px}
 .tile{
   background:var(--card); border:1px solid var(--rule); border-radius:14px;
   padding:24px 22px; transition:transform .2s, box-shadow .2s, border-color .2s;
 }
-.tile:hover{transform:translateY(-4px); border-color:#bcd6cc; box-shadow:0 16px 34px -22px rgba(20,33,31,.5)}
+.tile:hover{transform:translateY(-4px); border-color:#2c5a4d; box-shadow:0 18px 38px -22px rgba(0,0,0,.85)}
 .ticon{
   width:46px; height:46px; border-radius:12px; display:grid; place-items:center;
-  background:#e7f2ee; margin-bottom:15px;
+  background:rgba(94,234,212,.1); margin-bottom:15px;
 }
-.ticon svg{width:22px; height:22px; stroke:var(--green-2); fill:none; stroke-width:1.9;
+.ticon svg{width:22px; height:22px; stroke:var(--lime); fill:none; stroke-width:1.9;
   stroke-linecap:round; stroke-linejoin:round}
 .tile h4{font-size:1.02rem; margin:0 0 7px; font-weight:600}
 .tile p{margin:0; font-size:.93rem; color:var(--muted); line-height:1.55}
@@ -304,9 +300,10 @@ main{padding-bottom:40px}
   <div class="aboutgrid">
     <div class="bgcard">
       <h3>Background</h3>
-      <p>Ten years in industry, the last six of them in machine learning. I started in systems integration and data engineering at Nissan, then moved into modelling: <b>credit risk scoring and transaction monitoring at KBC Bank</b>, and later <b>demand forecasting at Nissan as a tech lead</b>. Much of it was delivered onsite with European clients in <b>Amsterdam and Paris</b>.</p>
-      <p>After six years of applied ML I went back to full-time study to go deeper on the theory, and completed an <b>MSc in Computer Science at Leiden University</b>. My thesis breaks a claim about an image into atomic facts, so a frozen vision-language model can be checked one fact at a time rather than trusted for a single verdict.</p>
-      <p>What carries across from the first decade is the habit of reporting what actually happened. Every repository I publish <b>leads with the result</b> — including the experiments that contradicted the method — and ships the full report with the code.</p>
+      <p>I started as a <b>software engineer</b>, working onsite for Nissan in <b>Amsterdam</b> and then <b>Paris</b> on finance, logistics and vehicle registration systems. The turn toward machine learning happened there. A lot of that work was manual calculation and hand-maintained rules, and I replaced part of it with regression models that did the job faster and more consistently. The modelling turned out to be more interesting than the plumbing.</p>
+      <p><b>Six of my ten years have been in machine learning.</b> Credit risk scoring and transaction monitoring for financial crime at <b>KBC Bank</b>, then leading demand forecasting for <b>Nissan</b>, where model output had to feed systems that could not be taken offline.</p>
+      <p>I did an <b>MSc in Computer Science at Leiden University</b> to deepen the theory behind work I had been doing in practice, and to keep pace with a field that moves quickly.</p>
+      <p>Outside work I read papers, play sport, and keep a few side projects running. Most of what I know I learned by building something and finding out where it broke.</p>
     </div>
 
     <div class="tiles">
