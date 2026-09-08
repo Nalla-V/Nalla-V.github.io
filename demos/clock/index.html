@@ -37,7 +37,6 @@
   @media (max-width:720px){
     .split{grid-template-columns:1fr;gap:16px}
     .wrap{padding:24px 16px 40px}
-    #dial,#photo{max-width:min(100%,340px);margin:0 auto}
     .strip img{width:38px;height:38px}
     h2.sec{margin-top:26px}
   }
@@ -45,6 +44,8 @@
   p.sub{margin:0 0 14px;color:var(--ink-soft);font-size:.93rem;max-width:62ch}
 
   canvas{display:block;width:100%;max-width:100%;height:auto;border-radius:8px;touch-action:none}
+  #dial{max-width:380px;margin:0 auto}
+  #photo{max-width:360px;margin:0 auto}
   #dial{cursor:grab} #dial.drag{cursor:grabbing}
 
   .read{margin-top:4px}
@@ -363,7 +364,8 @@ function showPhoto(){
   document.getElementById("ppred").textContent=fmt(p);
   document.getElementById("ptrue").textContent=fmt(t);
   document.getElementById("perr").textContent=circErr(p,t).toFixed(1)+" min";
-  imgs[cur].scrollIntoView({block:"nearest",inline:"nearest"});
+  const st=document.getElementById("strip"), th=imgs[cur];
+  if(st && th) st.scrollLeft = th.offsetLeft - st.clientWidth/2 + th.offsetWidth/2;
 }
 document.getElementById("next").addEventListener("click",()=>{
   cur=(cur+1)%PAYLOAD.images.length; showPhoto();});
