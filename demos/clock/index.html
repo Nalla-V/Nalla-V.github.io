@@ -33,11 +33,18 @@
 
   .card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px}
   .split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:22px;align-items:start}
-  @media (max-width:720px){.split{grid-template-columns:1fr}}
+  .split>*{min-width:0}
+  @media (max-width:720px){
+    .split{grid-template-columns:1fr;gap:16px}
+    .wrap{padding:24px 16px 40px}
+    #dial,#photo{max-width:min(100%,340px);margin:0 auto}
+    .strip img{width:38px;height:38px}
+    h2.sec{margin-top:26px}
+  }
   h2.sec{font-size:1.05rem;font-weight:600;margin:34px 0 6px;letter-spacing:-.01em}
   p.sub{margin:0 0 14px;color:var(--ink-soft);font-size:.93rem;max-width:62ch}
 
-  canvas{display:block;width:100%;height:auto;border-radius:8px;touch-action:none}
+  canvas{display:block;width:100%;max-width:100%;height:auto;border-radius:8px;touch-action:none}
   #dial{cursor:grab} #dial.drag{cursor:grabbing}
 
   .read{margin-top:4px}
@@ -63,7 +70,7 @@
   :focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:5px}
 
   #photo{background:var(--rule-soft)}
-  .strip{display:flex;gap:6px;overflow-x:auto;margin-top:12px;padding-bottom:6px}
+  .strip{display:flex;gap:6px;overflow-x:auto;max-width:100%;margin-top:12px;padding-bottom:6px;-webkit-overflow-scrolling:touch}
   .strip img{width:42px;height:42px;border-radius:6px;cursor:pointer;flex:none;
     border:2px solid transparent;opacity:.55;background:var(--rule-soft)}
   .strip img.on{border-color:var(--pred);opacity:1}
