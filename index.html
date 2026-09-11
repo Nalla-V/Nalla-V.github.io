@@ -378,6 +378,7 @@ details.more[open] summary::after{transform:rotate(180deg)}
 
 /* ---------------- education ---------------- */
 .edugrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:22px}
+.certgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,340px)); gap:22px; justify-content:center}
 .educard{
   background:var(--card); border:1px solid var(--rule); border-radius:16px;
   padding:28px 28px 26px; transition:border-color .2s, transform .2s, box-shadow .2s;
@@ -494,6 +495,7 @@ footer a:hover{color:var(--lime)}
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </div>
@@ -912,6 +914,36 @@ footer a:hover{color:var(--lime)}
   <div class="dots" id="pDots"></div>
 
   <p class="allrepos" style="text-align:center;margin-top:22px"><a href="https://github.com/Nalla-V" style="color:var(--lime)" target="_blank" rel="noopener noreferrer">All repositories on GitHub</a></p>
+</section>
+
+<section class="sec" id="certifications">
+  <div class="sechead">
+    <h2>Professional <em>Certifications</em></h2>
+    <p>Focused, hands-on credentials in current tools and techniques.</p>
+  </div>
+
+  <div class="certgrid">
+    <div class="educard">
+      <div class="edutop">
+        <div class="edubadge" style="font-size:1.6rem; line-height:1">🤗</div>
+        <div>
+          <h3>AI Agents Fundamentals</h3>
+          <p class="eduorg">Hugging Face</p>
+        </div>
+      </div>
+      <p class="edulabel">Covered</p>
+      <ul class="achv" style="border-top:none; margin-top:0; padding-top:0; padding-left:18px; list-style:disc">
+        <li>Agent fundamentals — tools, reasoning steps and actions — built hands-on using the smolagents framework.</li>
+      </ul>
+      <div class="edumeta" style="margin-top:14px"><span>Issued Sep 2026</span><span>Credential ID: nalla2026</span></div>
+      <p class="edulabel">Skills</p>
+      <ul class="tags">
+        <li>AI Agents</li>
+        <li>Prompt Engineering</li>
+        <li>Agentic AI Development</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section class="sec" id="education">
